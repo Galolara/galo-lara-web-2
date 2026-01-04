@@ -1,0 +1,275 @@
+{
+  "header": {
+    "conversemos": "Let's Talk",
+    "nav": {
+      "home": "Home",
+      "aboutMe": "About Me",
+      "services": "Services",
+      "events": "Events",
+      "upcomingEvents": "Upcoming Events",
+      "pastEvents": "Past Events",
+      "testimonies": "Testimonials",
+      "media": "Media",
+      "blog": "Blog",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "dream": "DREAM",
+    "big": "BIG",
+    "description": "I work with children and teenagers to help them reach their full potential in basketball.",
+    "description2": 
+    "In a demanding yet human environment, we train technique, discipline, and teamwork while strengthening confidence, performance, leadership, and character.",
+    "myStoryButton": "Know My Story",
+    "watchVideo": "Watch Video",
+    "discoverMore": "Discover More"
+  },
+  "upcomingEvents": {
+    "title": "Upcoming Events",
+    "subtitle": "Don't miss our upcoming camps and events",
+    "viewMore": "View More Details",
+    "location": "Location",
+    "date": "Date",
+    "register": "Register"
+  },
+  "testimonies": {
+    "title": "Testimonials",
+    "subtitle": "What They Say About Me"
+  },
+  "pastEvents": {
+    "title": "Past Events",
+    "subtitle": "Relive the Highlights",
+    "viewGallery": "View Gallery"
+  },
+  "media": {
+    "title": "In The Media",
+    "subtitle": "Recognition and media coverage of my work in developing young talent",
+    "filters": {
+      "all": "All",
+      "player": "As a Player",
+      "coach": "As a Coach",
+      "interviews": "Interviews",
+      "awards": "Awards"
+    },
+    "viewComplete": "Watch Full",
+    "noContent": "No content available for this category.",
+    "views": "views"
+  },
+  "blog": {
+    "title": "Blog & News",
+    "subtitle": "Stay up to date with the latest news, events, and experiences.",
+    "readMore": "Read More...",
+    "allArticles": "View All Articles →",
+    "backToHome": "Back to Home",
+    "backToBlog": "Back to Blog"
+  },
+  "contact": {
+    "title": "Connect With Me",
+    "subtitle": "Ready to take your game to the next level?",
+    "subtitle2": "Train with me and let's start your transformation on the court today.",
+    "contactInfo": "Contact Information",
+    "sendMessage": "Send Me a Message",
+    "location": "Orlando, Florida, USA",
+    "form": {
+      "fullName": "Full Name",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone (Optional)",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message Sent Successfully!",
+      "successMessage": "I'll contact you soon.",
+      "error": "There was an error sending the message. Please try again.",
+      "placeholders": {
+        "name": "Your name",
+        "email": "your@email.com",
+        "phone": "+1 555 555 5555",
+        "message": "Tell me how I can help you..."
+      }
+    }
+  },
+  "footer": {
+    "rights": "All Rights Reserved"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Personalized Training Programs",
+    "cta": "Let's Talk"
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "SERVICES"
+    },
+    "coach": {
+      "title": "PROFESSIONAL BASKETBALL COACH",
+      "location": "(Florida, USA)",
+      "description": [
+        "I work with teams and players in their competitive development, leading daily technical direction with a focus on strategic planning, performance analysis, and game preparation.",
+        "My approach targets both individual and team improvement, addressing tactical, technical, and mental aspects of the game to enhance performance on and off the court."
+      ],
+      "items": []
+    },
+    "recruiter": {
+      "title": "INTERNATIONAL RECRUITER",
+      "description": "I actively participate as a recruiter at national and international camps and tournaments, identifying talent and connecting players with opportunities across different programs and competitive levels.",
+      "items": [],
+      "button": "Study and Compete in the USA"
+    },
+    "development": {
+      "title": "INTERNATIONAL YOUTH TALENT DEVELOPMENT",
+      "description": "I support players from different countries who seek to integrate into the U.S. sports system, providing guidance in athletic and academic adaptation, as well as assistance with college eligibility processes (NCAA, NAIA).",
+      "items": [],
+      "includes": "Includes:",
+      "includesItems": ["Academic/athletic eligibility advising."]
+    },
+    "training": {
+      "title": "COACH EDUCATION & TRAINING",
+      "description": "I organize and deliver coaching courses, clinics, and training programs, both in-person and online, focused on training methodologies, planning, and sports leadership.",
+      "items": [
+        "Modern teaching methodologies.",
+        "Season and microcycle planning.",
+        "Use of data and technology in team development.",
+        "Management of professional, youth, and developmental rosters."
+      ]
+    },
+    "camps": {
+      "title": "CAMPS IN CHILE AND THE UNITED STATES",
+      "description": "I have over 10 years of experience organizing high-level training camps in Chile and the United States, creating intensive development opportunities and exposure to diverse competitive environments.",
+      "items": [
+        "+150 Chilean players have participated in international camps.",
+        "15+ athletes have earned athletic scholarships and are now studying in the United States.",
+        "Intensive training with multidisciplinary staff.",
+        "Direct exposure to coaches and recruiters from American high schools and universities."
+      ],
+      "button": "View Next Camp Details"
+    },
+    "personal": {
+      "title": "PERSONALIZED TRAINING",
+      "subtitle": "Shooting Specialist",
+      "description": "I provide individual and group training sessions designed to develop specific basketball skills, with a focus on technical fundamentals, decision-making, and mental preparation.",
+      "items": [
+        "Shooting: technical work on mechanics, consistency, and decision-making under pressure.",
+        "Ball handling and fundamentals: technical development adapted to real-game situations.",
+        "Advanced technology: use of the Spalding DNA smart basketball with AI to measure and track progress.",
+        "Mental strengthening: psychological training focused on confidence and competitive stress management."
+      ]
+    },
+    "cta": {
+      "title": "Ready to take your game to the next level?",
+      "description": "Let’s connect and evaluate the best path forward based on your athletic goals.",
+      "button": "Let's Talk"
+    }
+  },
+  "aboutMe": {
+    "title": "About Me",
+    "subtitle": "My Story and Trajectory in Basketball"
+  },
+  "ibtCamp": {
+    "title": "IBT International Basketball Camp",
+    "subtitle": "International Basketball Camp",
+    "lastSpots": "Last Spots Available!",
+    "register": "Register Now",
+    "downloadPdf": "Download PDF"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "tryAgain": "Try Again"
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "My Story",
+      "paragraph1": "I was born in the city of Concepción, Chile, and grew up in a family where basketball was part of everyday life. My older brothers played, and from a young age the sport surrounded me: the ball, the court, and the daily rhythm of training were always present.",
+      "paragraph2": "At 14, I was recruited by Club Petrox Chile. Looking back, it marked the beginning of a journey that allowed me to grow as a player, coach, and mentor. Since then, basketball has been the foundation of my personal and professional development.",
+      "paragraph3": "Over time, my experience as a player naturally evolved into a passion for coaching, leadership, and long-term athlete development, always with a strong focus on the formative process.",
+      "highlights": {}
+    },
+    "biography": {
+      "title": "About Me",
+      "paragraph1": "My mission is to guide the new generations on their basketball journey, providing them with technical, mental, and emotional tools so they can grow as athletes.",
+      "paragraph2": "With over XX years of experience training youth, my focus is on holistic development: teaching solid fundamentals, cultivating passion for the game, and fostering values that transcend the court.",
+      "paragraph3": "I have had the privilege of working with world leaders, elite athletes, successful entrepreneurs, and millions of people seeking to create significant changes in their lives."
+    },
+    "timeline": {
+      "title": "A Look at My Professional Journey over time",
+      "events": [
+        {
+          "year": "1992",
+          "title": "Basketball Beginnings",
+          "description": "At age 14, I was recruited by Club Petrox Chile, standing out as one of the country’s most promising youth basketball talents."
+        },
+        {
+          "year": "1994",
+          "title": "Professional Debut",
+          "description": "I made my debut with the senior team of Club Petrox Chile, beginning an 18-season professional basketball career in Chile."
+        },
+        {
+          "year": "1994–2011",
+          "title": "Professional Playing Career",
+          "description": "I won four national league championships and was named Best Player in three consecutive finals. I also represented the Chilean national team from age 16 to 27."
+        },
+        {
+          "year": "2007",
+          "title": "Coaching Beginnings",
+          "description": "I began my coaching career at Colegio Marista de Los Andes."
+        },
+        {
+          "year": "2014",
+          "title": "U17 National Champion",
+          "description": "As a coach, I won the U17 National Championship with Club Arturo Prat de San Felipe."
+        },
+        {
+          "year": "2015",
+          "title": "U17 South American in Argentina",
+          "description": "I joined the coaching staff of the Chilean U17 national team at the South American Championship in Argentina, qualifying for the FIBA Americas U18 Pre-World Cup."
+        },
+        {
+          "year": "2016",
+          "title": "Domani Champion",
+          "description": "As a coach, I won the Campioni del Domani U19 title with Club Arturo Prat, Chile’s most important youth basketball tournament."
+        },
+        {
+          "year": "2017",
+          "title": "U17 South American Title",
+          "description": "I served as Head Coach of the Chilean U17 national team at the South American Championship in Lima, Peru, achieving a historic title: Chile’s first South American championship in this category. The team qualified for the 2018 FIBA Americas U18 Pre-World Cup"
+        },
+        {
+          "year": "2017",
+          "title": "National League Second Division Final",
+          "description": "I led Club Arturo Prat’s senior team to the National Second Division League final."
+        },
+        {
+          "year": "2018",
+          "title": "Founding of Trasandino Basket",
+          "description": "I founded Trasandino Basket in Los Andes, a player development program that now serves over 100 athletes with a solid coaching staff."
+        },
+        {
+          "year": "2018",
+          "title": "IBT Camps Begin in Orlando",
+          "description": "Although the IBT (International Basketball Training) camp already existed in Florida, 2018 marked the first time I led a group of Chilean players to take part in this international experience. Since then, I have continued to lead this initiative year after year, providing young talents with the opportunity to train with American coaches, compete internationally, visit universities, and broaden their basketball perspective. This program has become an active bridge between Chile and the United States, opening new opportunities for both athletic and personal development."
+        },
+        {
+          "year": "2018",
+          "title": "FIBA Americas U18 Pre-World Cup in Canada",
+          "description": "As a coach, I led the Chilean U18 national team at the FIBA Americas Pre-World Cup in Canada, finishing the tournament with Chile ranked within the global youth basketball standings (#34)."
+        },
+        {
+          "year": "2019",
+          "title": "Final with Club Sergio Ceppi",
+          "description": "I reached the National Second Division League final once again, this time as head coach of Club Sergio Ceppi in Santiago."
+        },
+        {
+          "year": "2020–2023",
+          "title": "Head Coach at Stadio Italiano",
+          "description": "I served as Head Coach of Stadio Italiano in Las Condes, leading the club’s sports projects and youth development programs."
+        },
+        {
+          "year": "2023–Present",
+          "title": "International Career in the USA",
+          "description": "I joined The Academy of Central Florida in Orlando as a coach and international recruiter, focusing on youth development and building basketball pathways between Chile and the United States."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "header": {
+    "conversemos": "Conversemos",
+    "nav": {
+      "home": "Inicio",
+      "aboutMe": "Sobre mí",
+      "services": "Servicios",
+      "events": "Eventos",
+      "upcomingEvents": "Próximos Eventos",
+      "pastEvents": "Últimos Eventos",
+      "testimonies": "Testimonios",
+      "media": "Medios",
+      "blog": "Blog",
+      "contact": "Contacto"
+    }
+  },
+  "hero": {
+    "dream": "DREAM",
+    "big": "BIG",
+    "description": "Acompaño a niños y adolescentes a desarrollar su máximo potencial en el básquetbol.",
+    "description2": 
+      "En un entorno exigente y humano, entrenamos técnica, disciplina y trabajo en equipo, fortaleciendo la confianza, el rendimiento, el liderazgo y el carácter.",
+    "myStoryButton": "Conoce mi historia",
+    "watchVideo": "Ver Video",
+    "discoverMore": "Descubre más"
+  },
+  "upcomingEvents": {
+    "title": "Próximos Eventos",
+    "subtitle": "No te pierdas nuestros próximos eventos y actividades",
+    "viewMore": "Ver más detalles",
+    "location": "Ubicación",
+    "date": "Fecha",
+    "register": "Inscribirse"
+  },
+  "testimonies": {
+    "title": "Testimonios",
+    "subtitle": "Lo que dicen de mí"
+  },
+  "pastEvents": {
+    "title": "Últimos Eventos",
+    "subtitle": "Revive los momentos más destacados",
+    "viewGallery": "Ver galería"
+  },
+  "media": {
+    "title": "En los Medios",
+    "subtitle": "Reconocimiento y cobertura mediática de mi trabajo en el desarrollo del básquetbol juvenil",
+    "filters": {
+      "all": "Todos",
+      "player": "Como Jugador",
+      "coach": "Como Entrenador",
+      "interviews": "Entrevistas",
+      "awards": "Premios"
+    },
+    "viewComplete": "Ver Completo",
+    "noContent": "No hay contenido disponible para esta categoría.",
+    "views": "vistas"
+  },
+  "blog": {
+    "title": "Blog & Noticias",
+    "subtitle": "Mantente al día con las últimas noticias, eventos y experiencias.",
+    "readMore": "Leer más...",
+    "allArticles": "Ver Todos los Artículos →",
+    "backToHome": "Volver al Inicio",
+    "backToBlog": "Volver al Blog"
+  },
+  "contact": {
+    "title": "Conecta conmigo",
+    "subtitle": "¿Listo para llevar tu juego al siguiente nivel?",
+    "subtitle2": "Entrena conmigo y comencemos hoy mismo tu transformación en la cancha.",
+    "contactInfo": "Información de Contacto",
+    "sendMessage": "Envíame un Mensaje",
+    "location": "Orlando, Florida EEUU",
+    "form": {
+      "fullName": "Nombre Completo",
+      "name": "Nombre",
+      "email": "Email",
+      "phone": "Teléfono (Opcional)",
+      "message": "Mensaje",
+      "send": "Enviar mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado con éxito!",
+      "successMessage": "Te contactaré pronto.",
+      "error": "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+      "placeholders": {
+        "name": "Tu nombre",
+        "email": "tu@email.com",
+        "phone": "+569 555 55555",
+        "message": "Cuéntame cómo puedo ayudarte..."
+      }
+    }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados"
+  },
+  "services": {
+    "title": "Servicios",
+    "subtitle": "Programas de entrenamiento personalizados",
+    "cta": "Conversemos"
+  },
+  "aboutMe": {
+    "title": "Sobre mí",
+    "subtitle": "Mi historia y trayectoria en el baloncesto"
+  },
+  "ibtCamp": {
+    "title": "IBT Camp",
+    "subtitle": "Campamento de baloncesto internacional",
+    "lastSpots": "¡Últimos cupos disponibles!",
+    "register": "Inscríbete ahora",
+    "downloadPdf": "Descargar PDF"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "tryAgain": "Intentar de nuevo"
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Mi Historia",
+      "paragraph1": "Naci en la ciudad de Concepción, Chile. Crecí en una familia donde el básquetbol se vivía a diario. Mis hermanos mayores jugaban y, desde pequeño, el deporte fue parte de mi entorno: la pelota, la cancha y la rutina de entrenar formaban parte de la vida cotidiana.",
+      "paragraph2": "A los 14 años fui reclutado por el Club Petrox Chile. Más allá de lo que significaba en ese momento, hoy lo recuerdo como el punto de partida de un camino que me permitió crecer como jugador, entrenador y formador. Desde entonces, el básquetbol ha sido el eje de mi desarrollo personal y profesional.",
+      "paragraph3": "Con el paso de los años, esa experiencia como jugador se fue transformando en una vocación por enseñar, liderar y acompañar procesos deportivos, siempre con una mirada formativa y de largo plazo."
+    },
+    "timeline": {
+      "title": "Un vistazo a mi trayectoria a lo largo del tiempo",
+      "events": [
+        {
+          "year": "1992",
+          "title": "Inicio en el básquetbol",
+          "description": "A los 14 años, soy reclutado por el Club Petrox Chile, destacándome como uno de los talentos juveniles más prometedores del país."
+        },
+        {
+          "year": "1994",
+          "title": "Debut profesional",
+          "description": "Debuto en el equipo adulto del Club Petrox Chile, iniciando una carrera de 18 temporadas en el básquetbol profesional chileno."
+        },
+        {
+          "year": "1994–2011",
+          "title": "Carrera como jugador profesional",
+          "description": "Obtengo cuatro títulos de liga nacional y soy elegido mejor Jugador en tres finales consecutivas. Represento a la selección chilena desde los 16 hasta los 27 años."
+        },
+        {
+          "year": "2007",
+          "title": "Inicio como entrenador",
+          "description": "Inicio mi carrera como entrenador en el Colegio Marista de Los Andes."
+        },
+        {
+          "year": "2014",
+          "title": "Campeón nacional U17",
+          "description": "Como entrenador, obtengo el campeonato nacional U17 al mando del Club Arturo Prat de San Felipe."
+        },
+        {
+          "year": "2015",
+          "title": "Sudamericano U17 en Argentina",
+          "description": "Integro el cuerpo técnico de la selección chilena U17 en el Campeonato Sudamericano realizado en Argentina, logrando la clasificación al Pre-Mundial FIBA Américas U18."
+        },
+        {
+          "year": "2016",
+          "title": "Campeón del Domani",
+          "description": "Como entrenador, obtengo el título Campioni del Domani U19 con el Club Arturo Prat, el torneo juvenil más importante de Chile. Ese mismo año participo en el Pre-Mundial FIBA Américas U18 disputado en Valdivia junto a la selección chilena."
+        },
+        {
+          "year": "2017",
+          "title": "Título sudamericano U17",
+          "description": "Asumo como Head Coach de la selección chilena U17 en el Campeonato Sudamericano de Lima, Perú, obteniendo un histórico título sudamericano, el primero de Chile en esta categoría. Clasificamos al Pre-Mundial FIBA Américas U18 2018."
+        },
+        {
+          "year": "2017",
+          "title": "Final Liga Nacional Segunda División",
+          "description": "Lidero al equipo adulto del Club Arturo Prat hasta la final de la Liga Nacional Segunda División."
+        },
+        {
+          "year": "2018",
+          "title": "Fundación de Trasandino Basket",
+          "description": "Fundo Trasandino Basket en Los Andes, un proyecto formativo que actualmente cuenta con más de 100 jugadores y un equipo técnico consolidado."
+        },
+        {
+          "year": "2018",
+          "title": "Inicio de los Campamentos IBT en Orlando",
+          "description": "Si bien el campamento IBT (International Basketball Training) ya existía en Florida, en 2018 llevo por primera vez a un grupo de jugadores chilenos a vivir esta experiencia internacional. Desde entonces, he liderado esta iniciativa año a año, ofreciendo a jóvenes talentos la posibilidad de entrenar con entrenadores estadounidenses, competir a nivel internacional, visitar universidades y ampliar su visión del básquetbol. Este programa se ha consolidado como un puente activo entre Chile y Estados Unidos, abriendo nuevas oportunidades para el desarrollo deportivo y personal de sus participantes."
+        },
+        {
+          "year": "2018",
+          "title": "Pre-Mundial FIBA Américas U18 en Canadá",
+          "description": "Como entrenador, dirijo a la selección chilena U18 en el Pre-Mundial FIBA Américas disputado en Canadá, finalizando la participación con Chile ubicado dentro del ranking mundial juvenil (#34)."
+        },
+        {
+          "year": "2019",
+          "title": "Final con Club Sergio Ceppi",
+          "description": "Alcanzo nuevamente la final de la Liga Nacional de Segunda División, esta vez como entrenador del Club Sergio Ceppi en Santiago."
+        },
+        {
+          "year": "2020–2023",
+          "title": "Head Coach en Stadio Italiano",
+          "description": "Me desempeño como Head Coach de Stadio Italiano en Las Condes, liderando los proyectos deportivos del club y los procesos de formación y desarrollo juvenil."
+        },
+        {
+          "year": "2023–Presente",
+          "title": "Carrera internacional en EE.UU.",
+          "description": "Me incorporo a The Academy of Central Florida (Orlando, EE. UU.) como coach y reclutador internacional, trabajando en el desarrollo de talentos jóvenes y en la conexión deportiva entre Chile y Estados Unidos."
+        }
+      ]
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "SERVICIOS"
+    },
+    "coach": {
+      "title": "COACH PROFESIONAL DE BÁSQUETBOL",
+      "location": "(Florida, USA)",
+      "description": [
+        "Acompaño a equipos y jugadores en su desarrollo competitivo, liderando la dirección técnica diaria con foco en la planificación estratégica, el análisis de rendimiento y la preparación para la competencia.",
+        "Trabajo en la mejora individual y colectiva, abordando aspectos tácticos, técnicos y mentales del juego, con el objetivo de potenciar el desempeño dentro y fuera de la cancha."
+      ],
+      "items": []
+    },
+    "recruiter": {
+      "title": "RECLUTADOR INTERNACIONAL",
+      "description": "Participo activamente como reclutador en campamentos y torneos nacionales e internacionales, identificando talento y conectando a jugadores con oportunidades deportivas en distintos programas y niveles de competencia.",
+      "items": [],
+      "button": "Estudia y compite en EE.UU."
+    },
+    "development": {
+      "title": "DESARROLLO DE JÓVENES TALENTOS INTERNACIONALES",
+      "description": "Acompaño a jugadores de distintos países que buscan integrarse al sistema deportivo en Estados Unidos, brindando apoyo en su adaptación deportiva y académica, y orientación en procesos de elegibilidad universitaria (NCAA, NAIA).",
+      "items": [],
+      "includes": "Incluye:",
+      "includesItems": ["Asesoría en elegibilidad académica/deportiva."]
+    },
+    "training": {
+      "title": "CAPACITACIÓN PARA ENTRENADORES",
+      "description": "Organizo y facilito cursos, clínicas y capacitaciones para entrenadores, tanto presenciales como online, enfocados en metodologías de entrenamiento, planificación y liderazgo deportivo.",
+      "topics": "Temáticas abordadas:",
+      "items": [
+        "Metodología modernas de enseñanza.",
+        "Planificación de temporadas y microciclos.",
+        "Uso de datos y tecnologías en el desarrollo de equipos.",
+        "Gestión de planteles profesionales, juveniles y formativos."
+      ]
+    },
+    "camps": {
+      "title": "CAMPS EN CHILE Y ESTADOS UNIDOS",
+      "description": "Cuento con más de 10 años de experiencia organizando campamentos de entrenamiento de alto nivel en Chile y Estados Unidos, generando instancias formativas intensivas y exposición a distintos contextos competitivos.",
+      "items": [
+        "+150 jugadores chilenos han participado en los campamentos internacionales.",
+        "15+ atletas ya obtuvieron becas deportivas y hoy estudian en Estados Unidos.",
+        "Entrenamientos intensivos con staff multidisciplinarios.",
+        "Exposición directa ante entrenadores y reclutadores de colegios y universidades estadounidenses."
+      ],
+      "button": "Ver detalles del próximo campamento"
+    },
+    "personal": {
+      "title": "ENTRENAMIENTO PERSONALIZADO",
+      "subtitle": "Especialista en Tiro",
+      "description": "Realizo sesiones de entrenamiento individuales y grupales, enfocadas en el desarrollo de habilidades específicas del juego, con énfasis en fundamentos técnicos, toma de decisiones y preparación mental.",
+      "items": [
+        "Tiro: trabajo técnico sobre mecánica, consistencia y toma de decisiones bajo presión.",
+        "Manejo de balón y fundamentos: desarrollo técnico adaptado a situaciones reales.",
+        "Tecnología avanzada: uso del balón inteligente Spalding DNA con IA para medir y seguir el progreso.",
+        "Fortalecimiento mental: entrenamiento psicológico orientado a la confianza y gestión del estrés competitivo."
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para llevar tu juego al siguiente nivel?",
+      "description": "Conversemos y evaluemos juntos el camino más adecuado según tus objetivos deportivos.",
+      "button": "Conversemos"
+    }
+  }
+}
