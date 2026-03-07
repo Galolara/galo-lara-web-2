@@ -171,13 +171,13 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const galleryImages = [
-    { src: "/images/camp-chile-gallery-1.jpeg", alt: "Coach Galo Lara con participantes del camp" },
-    { src: "/images/camp-chile-gallery-2.jpeg", alt: "Entrenamiento en cancha - Camp Galo Lara Chile" },
-    { src: "/images/camp-chile-gallery-3.jpeg", alt: "Coach Galo Lara dirigiendo sesión de entrenamiento" },
-    { src: "/images/camp-chile-gallery-4.jpeg", alt: "Dream Big - Coach Galo Lara con jugador" },
-    { src: "/images/camp-chile-gallery-5.jpeg", alt: "Coach Galo Lara y participante en cancha" },
-    { src: "/images/camp-chile-gallery-6.jpeg", alt: "Galo Lara con joven deportista del camp" },
-    { src: "/images/camp-chile-gallery-7.jpeg", alt: "Foto grupal participantes Camp Galo Lara Chile" },
+    { src: "/images/camp-chile-gallery-1.jpeg" },
+    { src: "/images/camp-chile-gallery-2.jpeg" },
+    { src: "/images/camp-chile-gallery-3.jpeg" },
+    { src: "/images/camp-chile-gallery-4.jpeg"},
+    { src: "/images/camp-chile-gallery-5.jpeg"},
+    { src: "/images/camp-chile-gallery-6.jpeg" },
+    { src: "/images/camp-chile-gallery-7.jpeg" },
   ]
 
   useEffect(() => {
