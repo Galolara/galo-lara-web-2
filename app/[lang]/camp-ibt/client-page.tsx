@@ -194,7 +194,7 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
       <main className="min-h-screen">
 
         {/* Hero - Banner a ancho completo, título y descripción debajo */}
-        <section className="bg-black">
+        <section className="bg-black pt-20">
           <div className="w-full">
             <Image
               src="/images/camps-chile-banner.png"
