@@ -35,19 +35,19 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
       },
       schedule: {
         title: "Horarios Oficiales",
-        day1Title: "Día 1 (19 jun / 25 jun) — Registro y primer entrenamiento",
+        day1Title: "Día 1 (19 jun Estadio Español / 25 jun Stadio Italiano) — Registro y primer entrenamiento",
         day1: [
           { group: "Grupo 1 (9-13 años)", time: "08:45", activity: "Registro y entrega camiseta oficial" },
           { group: "Grupo 1", time: "09:15 – 13:00", activity: "Sesión de entrenamiento" },
           { group: "Grupo 2 (14-18 años)", time: "13:45", activity: "Registro y entrega camiseta oficial" },
           { group: "Grupo 2", time: "14:15 – 18:00", activity: "Sesión de entrenamiento" },
         ],
-        day2Title: "Día 2 (20 jun / 26 jun) — Entrenamiento completo",
+        day2Title: "Día 2 (20 jun Estadio Español / 26 jun Stadio Italiano) — Entrenamiento completo",
         day2: [
           { group: "Grupo 1", time: "09:00 – 13:00", activity: "Sesión de entrenamiento" },
           { group: "Grupo 2", time: "14:00 – 18:00", activity: "Sesión de entrenamiento" },
         ],
-        day3Title: "Día 3 (21 jun / 27 jun) — Cierre y competencias",
+        day3Title: "Día 3 (21 jun Estadio Español / 27 jun Stadio Italiano) — Cierre y competencias",
         day3: [
           { group: "Grupo 1", time: "09:00 – 11:00", activity: "Juegos y competencias por equipo" },
           { group: "Grupo 1 y 2", time: "11:00 – 12:00", activity: "Foto oficial y actividades" },
@@ -110,19 +110,19 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
       },
       schedule: {
         title: "Official Schedule",
-        day1Title: "Day 1 (Jun 19 / Jun 25) — Registration and first training",
+        day1Title: "Day 1 (Jun 19 Estadio Español / Jun 25 Stadio Italiano) — Registration and first training",
         day1: [
           { group: "Group 1 (9-13 years)", time: "08:45", activity: "Registration and official jersey delivery" },
           { group: "Group 1", time: "09:15 – 13:00", activity: "Training session" },
           { group: "Group 2 (14-18 years)", time: "13:45", activity: "Registration and official jersey delivery" },
           { group: "Group 2", time: "14:15 – 18:00", activity: "Training session" },
         ],
-        day2Title: "Day 2 (Jun 20 / Jun 26) — Full training",
+        day2Title: "Day 2 (Jun 20 Estadio Español / Jun 26 Stadio Italiano) — Full training",
         day2: [
           { group: "Group 1", time: "09:00 – 13:00", activity: "Training session" },
           { group: "Group 2", time: "14:00 – 18:00", activity: "Training session" },
         ],
-        day3Title: "Day 3 (Jun 21 / Jun 27) — Closing and competitions",
+        day3Title: "Day 3 (Jun 21 Estadio Español / Jun 27 Stadio Italiano) — Closing and competitions",
         day3: [
           { group: "Group 1", time: "09:00 – 11:00", activity: "Team games and competitions" },
           { group: "Groups 1 & 2", time: "11:00 – 12:00", activity: "Official photo and activities" },
