@@ -53,8 +53,8 @@ export default function PastEventsSection({ lang, dict }: PastEventsSectionProps
       imageAlt: "Camp Basketball Internacional IBT Orlando 2026",
       highlights:
         lang === "es"
-          ? ["Experiencia NBA", "Entrenamiento en KIA center (cancha de Magics)", "Parques temáticos (Universal y Seaworld)"]
-          : ["NBA Experience", "Training at the KIA Center (Magics' home court)", "Theme parks (Universal & Seaworld"],
+          ? ["Experiencia NBA", "Entrenamiento en KIA center (cancha de Magic)", "Parques temáticos (Universal y Seaworld)"]
+          : ["NBA Experience", "Training at the KIA Center (Magic's home court)", "Theme parks (Universal & Seaworld)"],
     },
     {
       id: 2,
