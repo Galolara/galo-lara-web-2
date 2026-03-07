@@ -2,8 +2,9 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Calendar, MapPin, Users, Trophy } from "lucide-react"
+import { Calendar, MapPin, Users, Trophy, ChevronLeft, ChevronRight } from "lucide-react"
 import { themeConfig } from "@/lib/theme-config"
+import { useState, useEffect } from "react"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
 import type { Locale } from "@/lib/i18n/config"
@@ -167,6 +168,28 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
     },
   }
 
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const galleryImages = [
+    { src: "/images/camp-chile-gallery-1.jpeg", alt: "Coach Galo Lara con participantes del camp" },
+    { src: "/images/camp-chile-gallery-2.jpeg", alt: "Entrenamiento en cancha - Camp Galo Lara Chile" },
+    { src: "/images/camp-chile-gallery-3.jpeg", alt: "Coach Galo Lara dirigiendo sesión de entrenamiento" },
+    { src: "/images/camp-chile-gallery-4.jpeg", alt: "Dream Big - Coach Galo Lara con jugador" },
+    { src: "/images/camp-chile-gallery-5.jpeg", alt: "Coach Galo Lara y participante en cancha" },
+    { src: "/images/camp-chile-gallery-6.jpeg", alt: "Galo Lara con joven deportista del camp" },
+    { src: "/images/camp-chile-gallery-7.jpeg", alt: "Foto grupal participantes Camp Galo Lara Chile" },
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % galleryImages.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [galleryImages.length])
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % galleryImages.length)
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)
+
   const t = content[lang]
 
   return (
@@ -174,23 +197,22 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
       <Header lang={lang} dict={dict} />
       <main className="min-h-screen">
 
-        {/* Hero with flyer image */}
-        <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-          <Image
-            src="/images/camps-chile-2026-flyer.png"
-            alt={t.hero.title}
-            fill
-            className="object-cover object-top"
-            priority
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="relative z-10 container mx-auto px-4 text-center">
-            <h1 className={`${themeConfig.typography.h1} ${themeConfig.colors.text.white} mb-6`}>{t.hero.title}</h1>
-            <p className={`${themeConfig.typography.h3} text-[#C5A572] mb-8`}>{t.hero.location}</p>
-            <p className={`${themeConfig.typography.body} ${themeConfig.colors.text.white} max-w-3xl mx-auto`}>
-              {t.hero.description}
-            </p>
+        {/* Hero - Banner a ancho completo, título y descripción debajo */}
+        <section className="bg-black">
+          <div className="relative w-full" style={{ aspectRatio: "3/1" }}>
+            <Image
+              src="/images/camps-chile-banner.png"
+              alt="Camps Chile 2026 - Galo Lara"
+              fill
+              className="object-cover object-center"
+              priority
+              loading="eager"
+            />
+          </div>
+          <div className="container mx-auto px-4 py-10 text-center">
+            <h1 className={`${themeConfig.typography.h1} ${themeConfig.colors.text.white} mb-4`}>{t.hero.title}</h1>
+            <p className={`${themeConfig.typography.h3} text-[#C5A572] mb-4`}>{t.hero.location}</p>
+            <p className={`${themeConfig.typography.body} text-gray-300 max-w-3xl mx-auto`}>{t.hero.description}</p>
           </div>
         </section>
 
@@ -335,6 +357,61 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
                     <p className="text-gray-400 text-sm leading-relaxed">{t.refund.text}</p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Galería - Experiencia del Campamento */}
+        <section className="py-20 bg-gray-900">
+          <div className="container mx-auto px-4">
+            <h2 className={`${themeConfig.typography.h2} text-white text-center mb-12`}>
+              {lang === "es" ? "Experiencia del Campamento" : "Camp Experience"}
+            </h2>
+            <div className="relative max-w-5xl mx-auto">
+              <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-2xl">
+                {galleryImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ${
+                      index === currentSlide ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover"
+                      priority={index === 0}
+                    />
+                  </div>
+                ))}
+              </div>
+              <button
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300"
+                aria-label={lang === "es" ? "Imagen anterior" : "Previous image"}
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300"
+                aria-label={lang === "es" ? "Siguiente imagen" : "Next image"}
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                {galleryImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentSlide ? "bg-white w-8" : "bg-white/50"
+                    }`}
+                    aria-label={lang === "es" ? `Ir a imagen ${index + 1}` : `Go to image ${index + 1}`}
+                  />
+                ))}
               </div>
             </div>
           </div>
