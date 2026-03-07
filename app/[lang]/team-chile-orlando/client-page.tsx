@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Calendar, MapPin, Users, Trophy, Phone, Globe } from "lucide-react"
+import { Calendar, MapPin, Users, Trophy, Phone } from "lucide-react"
 import { themeConfig } from "@/lib/theme-config"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
@@ -17,8 +17,6 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
   const content = {
     es: {
       hero: {
-        title: "TEAM CHILE ORLANDO 2026",
-        subtitle: "🇺🇸 TEAM CHILE – SUMMER TOURNAMENT",
         location: "Orlando, Florida, USA",
         dates: "18 al 28 de julio",
       },
@@ -82,8 +80,6 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
     },
     en: {
       hero: {
-        title: "TEAM CHILE ORLANDO 2026",
-        subtitle: "🇺🇸 TEAM CHILE – SUMMER TOURNAMENT",
         location: "Orlando, Florida, USA",
         dates: "July 18 to 28",
       },
@@ -139,11 +135,6 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
         title: "SPOT CONFIRMATION",
         items: ["Spots are limited", "Confirmation with initial deposit of USD 500"],
       },
-      contact: {
-        title: "CONTACT COACH GALO LARA DIRECTLY",
-        whatsapp: "+56 9 99994553",
-        web: "https://www.galolara.cl",
-      },
       cta: {
         title: "Secure your spot now!",
         description: "Spots are limited. Contact Coach Galo Lara directly to reserve your place on Team Chile.",
@@ -159,11 +150,12 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
       <Header lang={lang} dict={dict} />
       <main className="min-h-screen">
 
-        {/* Hero — Banner completo, título y descripción debajo */}
+        {/* Hero — Banner con título incluido */}
         <section className="bg-black">
           <div className="w-full">
             <Image
               src="/images/banner-torneo.png"
+              alt="Team Chile Orlando 2026 - Summer Tournament"
               width={1080}
               height={1080}
               className="w-full h-auto max-h-[600px] object-cover object-top"
@@ -171,12 +163,14 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
               loading="eager"
             />
           </div>
-          <div className="container mx-auto px-4 py-10 text-center">
-            <h1 className={`${themeConfig.typography.h1} ${themeConfig.colors.text.white} mb-3`}>{t.hero.title}</h1>
-            <p className={`${themeConfig.typography.h3} text-[#C5A572] mb-2`}>{t.hero.subtitle}</p>
-            <div className="flex flex-wrap justify-center gap-6 mt-4 text-gray-300">
-              <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-[#C5A572]" />{t.hero.location}</span>
-              <span className="flex items-center gap-2"><Calendar className="w-4 h-4 text-[#C5A572]" />{t.hero.dates}</span>
+          <div className="container mx-auto px-4 py-8 text-center">
+            <div className="flex flex-wrap justify-center gap-6 text-gray-300">
+              <span className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-[#C5A572]" />{t.hero.location}
+              </span>
+              <span className="flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-[#C5A572]" />{t.hero.dates}
+              </span>
             </div>
           </div>
         </section>
@@ -271,24 +265,6 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
                 </div>
               </div>
 
-              {/* Contacto */}
-              <div className="bg-[#C5A572]/10 border border-[#C5A572]/30 rounded-xl p-6">
-                <h3 className="text-white font-bold text-lg mb-4">{t.contact.title}</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-[#C5A572] flex-shrink-0" />
-                    <p className="text-gray-200 font-semibold">WhatsApp: {t.contact.whatsapp}</p>
-                  </div>
-              <div className="flex items-center gap-3">
-                <Globe className="w-5 h-5 text-[#C5A572] flex-shrink-0" />
-                <Link href={t.contact.web} target="_blank" rel="noopener noreferrer"
-                  className="text-[#C5A572] hover:text-[#B8956A] font-semibold underline">
-                  {t.contact.web}
-                </Link>
-                  </div>
-                </div>
-              </div>
-
             </div>
           </div>
         </section>
@@ -299,7 +275,7 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
             <h2 className={`${themeConfig.typography.h2} ${themeConfig.colors.text.white} mb-6`}>{t.cta.title}</h2>
             <p className={`${themeConfig.typography.body} text-gray-300 mb-10 max-w-2xl mx-auto`}>{t.cta.description}</p>
             <Link
-              href={`https://wa.me/56999994553`}
+              href="https://wa.me/56999994553"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-[#C5A572] text-black hover:bg-[#B8956A] font-bold px-10 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105"
