@@ -32,12 +32,30 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
       available: true,
       image: "/images/camp-chile-2026.jpeg",
       comingSoon: true,
+      route: "ibt-camp",
+    },
+    {
+      id: 3,
+      title: lang === "es" ? "Chile Orlando 2026 / U16-U17" : "Chile Orlando 2026 / U16-U17",
+      date: lang === "es" ? "18-28 Julio 2026" : "July 18-28, 2026",
+      time: lang === "es" ? "Torneo ESPN Wide World of Sports" : "ESPN Wide World of Sports Tournament",
+      location: "Orlando, Florida, USA",
+      participants: lang === "es" ? "U16 y U17" : "U16 and U17",
+      description:
+        lang === "es"
+          ? "Vive la experiencia de competir a nivel internacional por el Team Chile en USA. Tendrás la posibilidad de adquirir becas académicas y deportivas."
+          : "Experience competing internationally for Team Chile in the USA. You will have the opportunity to obtain academic and athletic scholarships.",
+      featured: false,
+      available: true,
+      image: "/images/tournament-chile-orlando-2026.png",
+      comingSoon: true,
+      route: "team-chile-orlando",
     },
   ]
 
-  const handleNavigateToCamp = () => {
-    const campRoute = getTranslatedRoute("ibt-camp", lang)
-    router.push(`/${lang}/${campRoute}`)
+  const handleNavigate = (route: string) => {
+    const translatedRoute = getTranslatedRoute(route, lang)
+    router.push(`/${lang}/${translatedRoute}`)
     window.scrollTo({ top: 0, behavior: "instant" })
   }
 
@@ -51,7 +69,7 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">{dict.upcomingEvents.subtitle}</p>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex flex-wrap justify-center gap-8">
           {upcomingEvents.map((event) => (
             <Card
               key={event.id}
@@ -99,7 +117,7 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
 
                 {event.available ? (
                   <Button
-                    onClick={handleNavigateToCamp}
+                    onClick={() => handleNavigate(event.route)}
                     className="w-full bg-white text-black hover:bg-gray-200 font-semibold"
                   >
                     {lang === "es" ? "Conoce más información" : "Learn more"}
