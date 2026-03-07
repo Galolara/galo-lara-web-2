@@ -197,12 +197,13 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
 
         {/* Hero - Banner a ancho completo, título y descripción debajo */}
         <section className="bg-black">
-          <div className="relative w-full" style={{ aspectRatio: "3/1" }}>
+          <div className="w-full">
             <Image
               src="/images/camps-chile-banner.png"
               alt="Camps Chile 2026 - Galo Lara"
-              fill
-              className="object-cover object-center"
+              width={1920}
+              height={640}
+              className="w-full h-auto"
               priority
               loading="eager"
             />
@@ -213,6 +214,7 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
             <p className={`${themeConfig.typography.body} text-gray-300 max-w-3xl mx-auto`}>{t.hero.description}</p>
           </div>
         </section>
+
 
         {/* Info cards */}
         <section className={`py-20 ${themeConfig.colors.background.dark}`}>
