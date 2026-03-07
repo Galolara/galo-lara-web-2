@@ -44,7 +44,7 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
       description:
         lang === "es"
           ? "Vive la experiencia de competir a nivel internacional por el Team Chile en USA. Tendrás la posibilidad de adquirir becas académicas y deportivas."
-          : "Experience competing internationally for Team Chile in the USA. You will have the opportunity to obtain academic and athletic scholarships.",
+          : "Compete internationally with Team Chile in the USA and gain the opportunity to earn academic and athletic scholarships.",
       featured: false,
       available: true,
       image: "/images/tournament-chile-orlando-2026.png",
