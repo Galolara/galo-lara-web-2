@@ -4,7 +4,7 @@ import { getDictionary } from "@/lib/i18n/dictionaries"
 import type { Locale } from "@/lib/i18n/config"
 import { sanitizeHTML, stripHTML } from "@/lib/security/sanitize"
 
-export const revalidate = 60 // temporal: 60s para que veas cambios pronto. Cámbialo a 86400 para producción.
+export const revalidate = 60
 
 const WP_API = process.env.NEXT_PUBLIC_WP_API || "https://wp.galolara.cl"
 
@@ -50,15 +50,25 @@ export default async function BlogPage({ params }: { params: { lang: Locale } })
 
           <div className="space-y-12">
             {posts.map((post: any) => {
-              // defensas sobre campos que pueden faltar en la API
+
               const sanitizedTitle = sanitizeHTML(post.title?.rendered || "")
+
               const excerptHtml = post.excerpt?.rendered || ""
-              const cleanExcerpt = stripHTML(excerptHtml).replace("[&hellip;]", "").trim()
-              // fallback robusto para la imagen destacada
+              let cleanExcerpt = stripHTML(excerptHtml)
+                .replace("[&hellip;]", "")
+                .replace("[...]", "")
+                .trim()
+
+              if (!cleanExcerpt.endsWith("[...]")) {
+                cleanExcerpt = cleanExcerpt + " [...]"
+              }
+
               const image =
                 post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+                post._embedded?.["wp:featuredmedia"]?.[0]?.media_details?.sizes?.large?.source_url ||
                 post.jetpack_featured_media_url ||
                 "/placeholder.svg"
+
               const altText = stripHTML(post.title?.rendered || "Artículo")
 
               return (
@@ -82,7 +92,18 @@ export default async function BlogPage({ params }: { params: { lang: Locale } })
                       </Link>
                     </h2>
 
-                    <p className="text-gray-300 text-lg">{cleanExcerpt}</p>
+                    <p className="text-gray-300 text-lg">
+                      {cleanExcerpt}
+                    </p>
+
+                    <div className="mt-4">
+                      <Link
+                        href={`/${params.lang}/blog/${post.slug}`}
+                        className="text-white font-semibold underline underline-offset-4 hover:text-gray-300 transition-colors"
+                      >
+                        {params.lang === "es" ? "Leer más" : "Read more"}
+                      </Link>
+                    </div>
                   </div>
                 </article>
               )
