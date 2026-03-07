@@ -18,42 +18,44 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
 
   const upcomingEvents = [
     {
-      id: 1,
-      title: lang === "es" ? "Camp Basketball internacional IBT" : "IBT International Basketball Camp",
-      date: lang === "es" ? "17-26 Enero 2026" : "January 17–26, 2026",
-      time: lang === "es" ? "Todo el día" : "All day",
-      location: "Orlando, Florida",
-      participants: lang === "es" ? "Edades 10-21" : "Ages 10-21",
-      description:
-        lang === "es"
-          ? "Estadía en hotel 3 estrellas, entrenamientos de nivel superior con profesionales reconocidos, asistencia a juegos de la NBA, parques temáticos, mall, outlets y más."
-          : "3-star hotel accommodation, top-level training with recognized professionals, attendance at NBA games, theme parks, malls, outlets and more.",
-      featured: true,
-      limitedSpots: true,
-      available: true,
-      image: "/images/IBT.jpg",
-    },
-    {
       id: 2,
       title: lang === "es" ? "Camps 2026 Chile" : "Chile Camps 2026",
-      date: lang === "es" ? "Julio 2026" : "July, 2026",
-      time: lang === "es" ? "Todo el día" : "All day",
+      date: lang === "es" ? "Junio 2026" : "June, 2026",
+      time: lang === "es" ? "3 días de entremiento" : "3 days of training",
       location: "Chile",
-      participants: lang === "es" ? "Edades 10-20" : "Ages 10-20",
+      participants: lang === "es" ? "Edades 9-18" : "Ages 9-18",
       description:
         lang === "es"
           ? "Entrenamientos intensivos enfocados en fundamentos, tiro, manejo, defensa, trabajo físico y juego en equipo, dirigidos por un staff técnico profesional."
           : "Intensive training sessions focused on fundamentals, shooting, ball handling, defense, physical conditioning, and team play, led by a professional coaching staff.",
       featured: false,
-      available: false,
+      available: true,
       image: "/images/camp-chile-2026.jpeg",
       comingSoon: true,
+      route: "ibt-camp",
+    },
+    {
+      id: 3,
+      title: lang === "es" ? "Chile Orlando 2026 / U16-U17" : "Chile Orlando 2026 / U16-U17",
+      date: lang === "es" ? "18-28 Julio 2026" : "July 18-28, 2026",
+      time: lang === "es" ? "Torneo ESPN Wide World of Sports" : "ESPN Wide World of Sports Tournament",
+      location: "Orlando, Florida, USA",
+      participants: lang === "es" ? "U16 y U17" : "U16 and U17",
+      description:
+        lang === "es"
+          ? "Vive la experiencia de competir a nivel internacional por el Team Chile en USA. Tendrás la posibilidad de adquirir becas académicas y deportivas."
+          : "Compete internationally with Team Chile in the USA and gain the opportunity to earn academic and athletic scholarships.",
+      featured: false,
+      available: true,
+      image: "/images/tournament-chile-orlando-2026.png",
+      comingSoon: true,
+      route: "team-chile-orlando",
     },
   ]
 
-  const handleNavigateToCamp = () => {
-    const campRoute = getTranslatedRoute("ibt-camp", lang)
-    router.push(`/${lang}/${campRoute}`)
+  const handleNavigate = (route: string) => {
+    const translatedRoute = getTranslatedRoute(route, lang)
+    router.push(`/${lang}/${translatedRoute}`)
     window.scrollTo({ top: 0, behavior: "instant" })
   }
 
@@ -67,25 +69,15 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">{dict.upcomingEvents.subtitle}</p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {upcomingEvents.map((event) => (
             <Card
               key={event.id}
-              className={
-                event.featured
-                  ? "bg-black/20 backdrop-blur-sm border border-[rgba(255,255,255,0.05)] hover:bg-black/30 transition-all duration-300 hover:scale-105 lg:col-span-2 lg:row-span-1 relative overflow-hidden"
-                  : "bg-black/20 backdrop-blur-sm border border-[rgba(255,255,255,0.05)] hover:bg-black/30 transition-all duration-300 hover:scale-105 relative overflow-hidden"
-              }
+              className="bg-black/20 backdrop-blur-sm border border-[rgba(255,255,255,0.05)] hover:bg-black/30 transition-all duration-300 hover:scale-105 relative overflow-hidden w-full max-w-md"
             >
-              {event.limitedSpots && (
-                <div className="absolute top-8 -right-12 rotate-45 bg-red-600 text-white px-16 py-2 text-sm font-bold shadow-lg z-10">
-                  {lang === "es" ? "ÚLTIMOS CUPOS" : "LAST SPOTS"}
-                </div>
-              )}
-
               {event.comingSoon && (
-                <div className="absolute top-8 -right-12 rotate-45 bg-gray-600 text-white px-16 py-2 text-sm font-bold shadow-lg z-10">
-                  {lang === "es" ? "PRÓXIMAMENTE" : "COMING SOON"}
+                <div className="absolute top-8 -right-12 rotate-45 bg-red-600 text-white px-16 py-2 text-sm font-bold shadow-lg z-10 text-center">
+                  {lang === "es" ? "CUPOS LIMITADOS" : "LIMITED PLACES"}
                 </div>
               )}
 
@@ -95,11 +87,6 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
                     <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
                   ) : (
                     <div className="absolute inset-0 bg-black/20" />
-                  )}
-                  {event.featured && (
-                    <div className="absolute top-4 left-4 bg-[#C5A572] text-white px-3 py-1 rounded-full text-sm font-semibold z-10">
-                      {lang === "es" ? "¡Destacado!" : "Featured!"}
-                    </div>
                   )}
                 </div>
               </CardHeader>
@@ -130,7 +117,7 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
 
                 {event.available ? (
                   <Button
-                    onClick={handleNavigateToCamp}
+                    onClick={() => handleNavigate(event.route)}
                     className="w-full bg-white text-black hover:bg-gray-200 font-semibold"
                   >
                     {lang === "es" ? "Conoce más información" : "Learn more"}
