@@ -29,7 +29,7 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
           ? "Entrenamientos intensivos enfocados en fundamentos, tiro, manejo, defensa, trabajo físico y juego en equipo, dirigidos por un staff técnico profesional."
           : "Intensive training sessions focused on fundamentals, shooting, ball handling, defense, physical conditioning, and team play, led by a professional coaching staff.",
       featured: false,
-      available: false,
+      available: true,
       image: "/images/camp-chile-2026.jpeg",
       comingSoon: true,
     },
