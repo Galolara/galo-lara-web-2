@@ -74,11 +74,6 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
         title: "CONFIRMACIÓN DE CUPO",
         items: ["Los cupos son limitados", "Confirmación con reserva inicial de 500 USD"],
       },
-      contact: {
-        title: "CONTACTO DIRECTO COACH GALO LARA",
-        whatsapp: "+56 9 99994553",
-        web: "https://www.galolara.cl",
-      },
       cta: {
         title: "¡Asegura tu cupo ahora!",
         description: "Los cupos son limitados. Contacta directamente al Coach Galo Lara para reservar tu lugar en el Team Chile.",
