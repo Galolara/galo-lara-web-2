@@ -53,15 +53,25 @@ export default async function BlogPage({ params }: { params: { lang: Locale } })
 
               const sanitizedTitle = sanitizeHTML(post.title?.rendered || "")
 
+              /* 
+                 EXCERPT LIMPIO
+              */
+
               const excerptHtml = post.excerpt?.rendered || ""
+
               let cleanExcerpt = stripHTML(excerptHtml)
-                .replace("[&hellip;]", "")
-                .replace("[...]", "")
+                .replace(/&hellip;/g, "")
+                .replace(/\[\.\.\.\]/g, "")
+                .replace(/\s+/g, " ")
                 .trim()
 
-              if (!cleanExcerpt.endsWith("[...]")) {
+              if (cleanExcerpt.length > 0) {
                 cleanExcerpt = cleanExcerpt + " [...]"
               }
+
+              /* 
+                 IMAGEN DESTACADA ROBUSTA
+              */
 
               const image =
                 post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
