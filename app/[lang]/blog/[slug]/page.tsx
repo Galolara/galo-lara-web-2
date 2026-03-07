@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import Footer from "@/components/footer"
 import { getDictionary } from "@/lib/i18n/dictionaries"
 import type { Locale } from "@/lib/i18n/config"
@@ -9,18 +10,10 @@ function fixWpContentAssetUrls(html: string, wpBase = "https://wp.galolara.cl") 
   if (!html) return html
 
   const uploadsAbs = `${wpBase}/wp-content/uploads/`
-
   let out = html
 
-  out = out.replace(
-    /src=(["'])\/wp-content\/uploads\//gi,
-    `src=$1${uploadsAbs}`
-  )
-
-  out = out.replace(
-    /href=(["'])\/wp-content\/uploads\//gi,
-    `href=$1${uploadsAbs}`
-  )
+  out = out.replace(/src=(["'])\/wp-content\/uploads\//gi, `src=$1${uploadsAbs}`)
+  out = out.replace(/href=(["'])\/wp-content\/uploads\//gi, `href=$1${uploadsAbs}`)
 
   out = out.replace(
     /src=(["'])https?:\/\/(www\.)?galolara\.cl\/wp-content\/uploads\//gi,
@@ -42,26 +35,14 @@ function fixWpContentAssetUrls(html: string, wpBase = "https://wp.galolara.cl") 
     `href=$1${uploadsAbs}`
   )
 
-  out = out.replace(
-    /srcset=(["'])([\s\S]*?)\1/gi,
-    (match, quote, value) => {
-      const fixed = value
-        .replace(
-          /https?:\/\/(www\.)?galolara\.cl\/wp-content\/uploads\//gi,
-          uploadsAbs
-        )
-        .replace(
-          /http:\/\/wp\.galolara\.cl\/wp-content\/uploads\//gi,
-          uploadsAbs
-        )
-        .replace(
-          /\/wp-content\/uploads\//gi,
-          uploadsAbs
-        )
+  out = out.replace(/srcset=(["'])([\s\S]*?)\1/gi, (match, quote, value) => {
+    const fixed = value
+      .replace(/https?:\/\/(www\.)?galolara\.cl\/wp-content\/uploads\//gi, uploadsAbs)
+      .replace(/http:\/\/wp\.galolara\.cl\/wp-content\/uploads\//gi, uploadsAbs)
+      .replace(/\/wp-content\/uploads\//gi, uploadsAbs)
 
-      return `srcset=${quote}${fixed}${quote}`
-    }
-  )
+    return `srcset=${quote}${fixed}${quote}`
+  })
 
   return out
 }
@@ -73,10 +54,8 @@ async function getPost(slug: string) {
     const response = await fetch(
       `${WP_API}/wp-json/wp/v2/posts?slug=${encodeURIComponent(slug)}&_embed`,
       {
-        next: { revalidate: 86400 },
-        headers: {
-          "User-Agent": "Vercel-Next-Blog",
-        },
+        next: { revalidate: 3600 },
+        headers: { "User-Agent": "Vercel-Next-Blog" },
       }
     )
 
@@ -98,6 +77,35 @@ async function getPost(slug: string) {
   }
 }
 
+/* =========================
+   SEO + Social preview
+========================= */
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const post = await getPost(params.slug)
+
+  if (!post) return {}
+
+  const title = post.title?.rendered?.replace(/<[^>]+>/g, "") || "Blog"
+  const description =
+    post.excerpt?.rendered?.replace(/<[^>]+>/g, "") || "Blog article"
+
+  const featuredImage =
+    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+    post.jetpack_featured_media_url ||
+    null
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: featuredImage ? [featuredImage] : [],
+    },
+  }
+}
+
 export default async function BlogPostPage({
   params,
 }: {
@@ -106,9 +114,7 @@ export default async function BlogPostPage({
   const post = await getPost(params.slug)
   const dict = await getDictionary(params.lang)
 
-  if (!post) {
-    return notFound()
-  }
+  if (!post) return notFound()
 
   let sanitizedTitle = ""
   try {
@@ -138,7 +144,7 @@ export default async function BlogPostPage({
     <>
       <article className="pt-32 pb-20 bg-black min-h-screen">
         <div className="container mx-auto px-4 max-w-4xl">
-          
+
           <div className="mb-8">
             <Link
               href={`/${params.lang}/blog`}
@@ -149,14 +155,17 @@ export default async function BlogPostPage({
           </div>
 
           {safeFeaturedImage && (
-            <img
-              src={safeFeaturedImage || "/placeholder.svg"}
+            <Image
+              src={safeFeaturedImage}
               alt={
                 sanitizedTitle
                   ? sanitizedTitle.replace(/<[^>]+>/g, "")
                   : "Blog post image"
               }
+              width={1200}
+              height={600}
               className="rounded-lg object-cover w-full h-96 mb-8"
+              priority
             />
           )}
 
@@ -167,14 +176,14 @@ export default async function BlogPostPage({
 
           <div
             className="blog-content prose prose-invert prose-lg max-w-none text-white
-                      prose-p:mb-6
-                      prose-headings:text-white
-                      prose-strong:text-white
-                      prose-a:text-blue-400
-                      prose-img:rounded-lg
-                      prose-ul:list-disc prose-ol:list-decimal
-                      prose-ul:pl-6 prose-ol:pl-6
-                      prose-li:marker:text-white"
+                       prose-p:mb-6
+                       prose-headings:text-white
+                       prose-strong:text-white
+                       prose-a:text-blue-400
+                       prose-img:rounded-lg
+                       prose-ul:list-disc prose-ol:list-decimal
+                       prose-ul:pl-6 prose-ol:pl-6
+                       prose-li:marker:text-white"
             dangerouslySetInnerHTML={{ __html: sanitizedContent }}
           />
 
