@@ -151,7 +151,7 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
       <main className="min-h-screen">
 
         {/* Hero — Banner con título incluido */}
-        <section className="bg-black">
+        <section className="bg-black pt-20">
           <div className="w-full">
             <Image
               src="/images/banner-torneo.png"
