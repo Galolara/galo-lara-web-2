@@ -163,9 +163,9 @@ export default async function BlogPostPage({
                   : "Blog post image"
               }
               width={1200}
-              height={600}
-              className="rounded-lg object-cover w-full h-96 mb-8"
-              priority
+              height={800}
+              className="rounded-lg object-contain w-full mb-8"
+              priority              
             />
           )}
 
