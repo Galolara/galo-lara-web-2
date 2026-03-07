@@ -43,10 +43,10 @@ export default function CampIBTClientPage() {
         {/* Hero Section */}
         <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
           <Image
-            src="/images/design-mode/servicios%20camps%202.jpg"
+            src="/images/camps-chile-banner.png"
             alt="Campamento IBT 2026"
             fill
-            className="object-cover"
+            className="object-contain"
             priority
             loading="eager"
           />
