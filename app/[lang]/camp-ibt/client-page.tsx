@@ -172,10 +172,8 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
 
   const galleryImages = [
     { src: "/images/camp-chile-gallery-1.jpeg" },
-    { src: "/images/camp-chile-gallery-2.jpeg" },
     { src: "/images/camp-chile-gallery-3.jpeg" },
     { src: "/images/camp-chile-gallery-4.jpeg"},
-    { src: "/images/camp-chile-gallery-5.jpeg"},
     { src: "/images/camp-chile-gallery-6.jpeg" },
     { src: "/images/camp-chile-gallery-7.jpeg" },
   ]
