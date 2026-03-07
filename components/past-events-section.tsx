@@ -49,7 +49,7 @@ export default function PastEventsSection({ lang, dict }: PastEventsSectionProps
       date: lang === "es" ? "17-26 Enero 2026" : "January 17–26, 2026",
       location: "Orlando, Florida",
       participants: lang === "es" ? "Edades 10-21" : "Ages 10-21",
-      image: "/images/IBT.jpg",
+      image: "/images/IBT.2026.jpeg",
       imageAlt: "Camp Basketball Internacional IBT Orlando 2026",
       highlights:
         lang === "es"
