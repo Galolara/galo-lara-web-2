@@ -63,10 +63,11 @@ export default async function BlogSection({ lang, dict }: BlogSectionProps) {
             const excerptHtml = post.excerpt?.rendered || ""
 
             let cleanExcerpt = stripHTML(excerptHtml)
-              .replace(/&hellip;/g, "")
-              .replace(/\[\.\.\.\]/g, "")
-              .replace(/\s+/g, " ")
-              .trim()
+              replace(/&hellip;/g, "")
+              replace(/\[\.\.\.\]/g, "")
+              replace(/\[\s*\]/g, "") 
+              replace(/\s+/g, " ")
+              trim()
 
             if (cleanExcerpt.length > 0) {
               cleanExcerpt = cleanExcerpt + " [...]"
