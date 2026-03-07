@@ -46,7 +46,7 @@ export default function CampIBTClientPage() {
             src="/images/camps-chile-banner.png"
             alt="Campamento IBT 2026"
             fill
-            className="object-contain"
+            className="object-cover scale-75"
             priority
             loading="eager"
           />
