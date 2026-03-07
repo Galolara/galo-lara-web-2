@@ -76,7 +76,7 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
               className="bg-black/20 backdrop-blur-sm border border-[rgba(255,255,255,0.05)] hover:bg-black/30 transition-all duration-300 hover:scale-105 relative overflow-hidden w-full max-w-md"
             >
               {event.comingSoon && (
-                <div className="absolute top-8 -right-12 rotate-45 bg-red-600 text-white px-16 py-2 text-sm font-bold shadow-lg z-10">
+                <div className="absolute top-8 -right-12 rotate-45 bg-red-600 text-white px-16 py-2 text-sm font-bold shadow-lg z-10 text-center">
                   {lang === "es" ? "CUPOS LIMITADOS" : "LIMITED PLACES"}
                 </div>
               )}
