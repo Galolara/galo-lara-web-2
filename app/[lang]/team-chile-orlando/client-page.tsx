@@ -163,8 +163,7 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
         <section className="bg-black">
           <div className="w-full">
             <Image
-              src="/images/tournament-chile-orlando-2026.png"
-              alt="Team Chile Orlando 2026 - Summer Tournament"
+              src="/images/banner-torneo.png"
               width={1080}
               height={1080}
               className="w-full h-auto max-h-[600px] object-cover object-top"
