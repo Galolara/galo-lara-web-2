@@ -18,7 +18,6 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
   const content = {
     es: {
       hero: {
-        title: "CAMPS CHILE 2026",
         location: "Chiguayante & Santiago, Chile",
         description: "Entrenamientos intensivos para jugadores y jugadoras que quieren mejorar su juego, competir mejor y proyectarse en el Basketball.",
       },
@@ -93,7 +92,6 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
     },
     en: {
       hero: {
-        title: "CHILE CAMPS 2026",
         location: "Chiguayante & Santiago, Chile",
         description: "Intensive training sessions for players who want to improve their game, compete better and grow in Basketball.",
       },
