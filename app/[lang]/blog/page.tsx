@@ -4,14 +4,14 @@ import { getDictionary } from "@/lib/i18n/dictionaries"
 import type { Locale } from "@/lib/i18n/config"
 import { sanitizeHTML, stripHTML } from "@/lib/security/sanitize"
 
-export const revalidate = 86400
+export const revalidate = 60 // temporal: 60s para que veas cambios pronto. Cámbialo a 86400 para producción.
 
 const WP_API = process.env.NEXT_PUBLIC_WP_API || "https://wp.galolara.cl"
 
 async function getPosts() {
   try {
     const response = await fetch(`${WP_API}/wp-json/wp/v2/posts?_embed&per_page=10`, {
-      next: { revalidate: 86400 },
+      next: { revalidate: 60 },
     })
 
     if (!response.ok) {
@@ -50,21 +50,27 @@ export default async function BlogPage({ params }: { params: { lang: Locale } })
 
           <div className="space-y-12">
             {posts.map((post: any) => {
-              const sanitizedTitle = sanitizeHTML(post.title.rendered)
-              const cleanExcerpt = stripHTML(post.excerpt.rendered).replace("[&hellip;]", "").trim()
+              // defensas sobre campos que pueden faltar en la API
+              const sanitizedTitle = sanitizeHTML(post.title?.rendered || "")
+              const excerptHtml = post.excerpt?.rendered || ""
+              const cleanExcerpt = stripHTML(excerptHtml).replace("[&hellip;]", "").trim()
+              // fallback robusto para la imagen destacada
+              const image =
+                post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+                post.jetpack_featured_media_url ||
+                "/placeholder.svg"
+              const altText = stripHTML(post.title?.rendered || "Artículo")
 
               return (
                 <article
                   key={post.id}
                   className="flex flex-col gap-6 border-b border-[rgba(255,255,255,0.05)] pb-12 last:border-b-0"
                 >
-                  {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
-                    <img
-                      src={post._embedded["wp:featuredmedia"][0].source_url || "/placeholder.svg"}
-                      alt={post.title.rendered}
-                      className="rounded-lg object-cover w-full h-64"
-                    />
-                  )}
+                  <img
+                    src={image}
+                    alt={altText}
+                    className="rounded-lg object-cover w-full h-64"
+                  />
 
                   <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
