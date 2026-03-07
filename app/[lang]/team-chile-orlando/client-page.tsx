@@ -158,7 +158,7 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
               alt="Team Chile Orlando 2026 - Summer Tournament"
               width={1080}
               height={1080}
-              className="w-full h-auto max-h-[600px] object-cover object-top"
+              className="w-full h-auto"
               priority
               loading="eager"
             />
