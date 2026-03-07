@@ -12,43 +12,36 @@ function fixWpContentAssetUrls(html: string, wpBase = "https://wp.galolara.cl") 
 
   let out = html
 
-  // src="/wp-content/uploads/..."
   out = out.replace(
     /src=(["'])\/wp-content\/uploads\//gi,
     `src=$1${uploadsAbs}`
   )
 
-  // href="/wp-content/uploads/..."
   out = out.replace(
     /href=(["'])\/wp-content\/uploads\//gi,
     `href=$1${uploadsAbs}`
   )
 
-  // src="http(s)://galolara.cl/wp-content/uploads/..."
   out = out.replace(
     /src=(["'])https?:\/\/(www\.)?galolara\.cl\/wp-content\/uploads\//gi,
     `src=$1${uploadsAbs}`
   )
 
-  // href="http(s)://galolara.cl/wp-content/uploads/..."
   out = out.replace(
     /href=(["'])https?:\/\/(www\.)?galolara\.cl\/wp-content\/uploads\//gi,
     `href=$1${uploadsAbs}`
   )
 
-  // src="http://wp.galolara.cl/wp-content/uploads/..." → https
   out = out.replace(
     /src=(["'])http:\/\/wp\.galolara\.cl\/wp-content\/uploads\//gi,
     `src=$1${uploadsAbs}`
   )
 
-  // href="http://wp.galolara.cl/wp-content/uploads/..." → https
   out = out.replace(
     /href=(["'])http:\/\/wp\.galolara\.cl\/wp-content\/uploads\//gi,
     `href=$1${uploadsAbs}`
   )
 
-  // srcset="... 300w, ... 768w"
   out = out.replace(
     /srcset=(["'])([\s\S]*?)\1/gi,
     (match, quote, value) => {
@@ -80,7 +73,7 @@ async function getPost(slug: string) {
     const response = await fetch(
       `${WP_API}/wp-json/wp/v2/posts?slug=${encodeURIComponent(slug)}&_embed`,
       {
-        next: { revalidate: 86400 }, // Cache por 1 día
+        next: { revalidate: 86400 },
         headers: {
           "User-Agent": "Vercel-Next-Blog",
         },
@@ -113,7 +106,6 @@ export default async function BlogPostPage({
   const post = await getPost(params.slug)
   const dict = await getDictionary(params.lang)
 
-
   if (!post) {
     return notFound()
   }
@@ -129,19 +121,24 @@ export default async function BlogPostPage({
   let sanitizedContent = ""
   try {
     sanitizedContent = sanitizeHTML(post?.content?.rendered ?? "")
-
     sanitizedContent = fixWpContentAssetUrls(sanitizedContent)
   } catch (e) {
     console.error("[blog] sanitizeHTML failed for content slug:", params.slug, e)
     sanitizedContent = post?.content?.rendered ?? ""
   }
 
-  const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url
+  const featuredImage =
+    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+    post.jetpack_featured_media_url ||
+    null
+
+  const safeFeaturedImage = featuredImage?.replace("http://", "https://")
 
   return (
     <>
       <article className="pt-32 pb-20 bg-black min-h-screen">
         <div className="container mx-auto px-4 max-w-4xl">
+          
           <div className="mb-8">
             <Link
               href={`/${params.lang}/blog`}
@@ -151,9 +148,9 @@ export default async function BlogPostPage({
             </Link>
           </div>
 
-          {featuredImage && (
+          {safeFeaturedImage && (
             <img
-              src={featuredImage || "/placeholder.svg"}
+              src={safeFeaturedImage || "/placeholder.svg"}
               alt={
                 sanitizedTitle
                   ? sanitizedTitle.replace(/<[^>]+>/g, "")
@@ -170,11 +167,17 @@ export default async function BlogPostPage({
 
           <div
             className="blog-content prose prose-invert prose-lg max-w-none text-white
+                      prose-p:mb-6
+                      prose-headings:text-white
+                      prose-strong:text-white
+                      prose-a:text-blue-400
+                      prose-img:rounded-lg
                       prose-ul:list-disc prose-ol:list-decimal
                       prose-ul:pl-6 prose-ol:pl-6
                       prose-li:marker:text-white"
             dangerouslySetInnerHTML={{ __html: sanitizedContent }}
           />
+
         </div>
       </article>
 
