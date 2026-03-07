@@ -48,13 +48,13 @@ export default function PastEventsSection({ lang, dict }: PastEventsSectionProps
       title: "Camp Basketball Internacional IBT",
       date: lang === "es" ? "17-26 Enero 2026" : "January 17–26, 2026",
       location: "Orlando, Florida",
-      participants: lang === "es" ? "Edades 10-21" : "Ages 10-21",
+      participants: "+60",
       image: "/images/IBT.2026.jpeg",
       imageAlt: "Camp Basketball Internacional IBT Orlando 2026",
       highlights:
         lang === "es"
-          ? ["Estadía en hotel 3 estrellas", "Juegos de la NBA", "Parques temáticos"]
-          : ["3-star hotel stay", "NBA games", "Theme parks"],
+          ? ["Experiencia NBA", "Entrenamiento en KIA center (cancha de Magics)", "Parques temáticos (Universal y Seaworld)"]
+          : ["NBA Experience", "Training at the KIA Center (Magics' home court)", "Theme parks (Universal & Seaworld"],
     },
     {
       id: 2,
