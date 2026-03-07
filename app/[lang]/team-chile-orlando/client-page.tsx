@@ -77,7 +77,7 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
       contact: {
         title: "CONTACTO DIRECTO COACH GALO LARA",
         whatsapp: "+56 9 99994553",
-        web: "www.galolara.cl",
+        web: "https://www.galolara.cl",
       },
       cta: {
         title: "¡Asegura tu cupo ahora!",
@@ -147,7 +147,7 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
       contact: {
         title: "CONTACT COACH GALO LARA DIRECTLY",
         whatsapp: "+56 9 99994553",
-        web: "www.galolara.cl",
+        web: "https://www.galolara.cl",
       },
       cta: {
         title: "Secure your spot now!",
@@ -285,9 +285,12 @@ export default function TeamChileOrlandoClientPage({ lang, dict }: TeamChileOrla
                     <Phone className="w-5 h-5 text-[#C5A572] flex-shrink-0" />
                     <p className="text-gray-200 font-semibold">WhatsApp: {t.contact.whatsapp}</p>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <Globe className="w-5 h-5 text-[#C5A572] flex-shrink-0" />
-                    <p className="text-gray-200 font-semibold">{t.contact.web}</p>
+              <div className="flex items-center gap-3">
+                <Globe className="w-5 h-5 text-[#C5A572] flex-shrink-0" />
+                <Link href={t.contact.web} target="_blank" rel="noopener noreferrer"
+                  className="text-[#C5A572] hover:text-[#B8956A] font-semibold underline">
+                  {t.contact.web}
+                </Link>
                   </div>
                 </div>
               </div>
