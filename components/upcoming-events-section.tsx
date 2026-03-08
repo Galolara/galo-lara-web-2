@@ -32,7 +32,7 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
       available: true,
       image: "/images/camp-chile-2026.jpeg",
       comingSoon: true,
-      route: "ibt-camp",
+      route: "camps-chile",
       contain: false,
     },
     {
