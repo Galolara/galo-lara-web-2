@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { themeConfig } from "@/lib/theme-config"
 import type { Locale } from "@/lib/i18n/config"
+import { getTranslatedRoute } from "@/lib/i18n/get-translated-route"
 
 interface ServicesSectionProps {
   lang: Locale
@@ -31,7 +32,7 @@ export default function ServicesSection({ lang, dict }: ServicesSectionProps) {
 
   const handleCampClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    const campRoute = lang === "es" ? `/${lang}/camp-ibt` : `/${lang}/ibt-camp`
+    const campRoute = `/${lang}/${getTranslatedRoute("camps-chile", lang)}`
     router.push(campRoute)
   }
 
