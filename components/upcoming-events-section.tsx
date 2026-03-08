@@ -51,7 +51,7 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
       image: "/images/tournament-chile-orlando-2026.png",
       comingSoon: true,
       route: "team-chile-orlando",
-      contain: true,
+      contain: false,
     },
   ]
 
