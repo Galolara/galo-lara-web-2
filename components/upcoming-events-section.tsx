@@ -139,6 +139,3 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
     </section>
   )
 }
-    </section>
-  )
-}
