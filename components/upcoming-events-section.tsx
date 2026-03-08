@@ -73,7 +73,7 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
           {upcomingEvents.map((event) => (
             <Card
               key={event.id}
-              className="bg-black/20 backdrop-blur-sm border border-[rgba(255,255,255,0.05)] hover:bg-black/30 transition-all duration-300 hover:scale-105 relative overflow-hidden w-full max-w-md"
+              className="bg-black/20 backdrop-blur-sm border border-[rgba(255,255,255,0.05)] hover:bg-black/30 transition-all duration-300 hover:scale-105 relative overflow-hidden w-full max-w-md p-0"
             >
               {event.comingSoon && (
                 <div className="absolute top-10 -right-10 w-44 rotate-45 bg-red-600 text-white py-1.5 text-[11px] font-bold shadow-lg z-10 text-center leading-tight">
@@ -81,10 +81,10 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
                 </div>
               )}
 
-              <CardHeader className="p-0">
-                <div className="relative h-72 bg-gradient-to-br from-gray-700 to-gray-900 rounded-t-lg overflow-hidden -mt-px">
+              <CardHeader className="p-0 -mt-[1px]">
+                <div className="relative h-72 overflow-hidden">
                   {event.image ? (
-                    <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover object-center" />
+                    <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover object-top" />
                   ) : (
                     <div className="absolute inset-0 bg-black/20" />
                   )}
