@@ -18,7 +18,8 @@ export const routes: Record<string, Record<Locale, string>> = {
   home: { es: "", en: "" },
   "about-me": { es: "sobre-mi", en: "about-me" },
   services: { es: "servicios", en: "services" },
-  "ibt-camp": { es: "camp-ibt", en: "ibt-camp" },
+  "camps-chile": { es: "camps-chile", en: "camps-chile" },
+  "team-chile-orlando": { es: "team-chile-orlando", en: "team-chile-orlando" },
   blog: { es: "blog", en: "blog" },
   // Hash routes
   events: { es: "eventos", en: "events" },
