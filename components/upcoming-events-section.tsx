@@ -33,6 +33,7 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
       image: "/images/camp-chile-2026.jpeg",
       comingSoon: true,
       route: "ibt-camp",
+      contain: false,
     },
     {
       id: 3,
@@ -50,6 +51,7 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
       image: "/images/tournament-chile-orlando-2026.png",
       comingSoon: true,
       route: "team-chile-orlando",
+      contain: true,
     },
   ]
 
@@ -84,7 +86,7 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
               <CardHeader className="p-0 -mt-[1px]">
                 <div className="relative h-72 overflow-hidden">
                   {event.image ? (
-                    <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover object-top" />
+                    <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className={event.contain ? "object-contain" : "object-cover object-top"} />
                   ) : (
                     <div className="absolute inset-0 bg-black/20" />
                   )}
