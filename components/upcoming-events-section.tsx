@@ -76,15 +76,15 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
               className="bg-black/20 backdrop-blur-sm border border-[rgba(255,255,255,0.05)] hover:bg-black/30 transition-all duration-300 hover:scale-105 relative overflow-hidden w-full max-w-md"
             >
               {event.comingSoon && (
-                <div className="absolute top-6 -right-8 w-36 rotate-45 bg-red-600 text-white py-2 text-xs font-bold shadow-lg z-10 text-center">
+                <div className="absolute top-10 -right-10 w-44 rotate-45 bg-red-600 text-white py-1.5 text-[11px] font-bold shadow-lg z-10 text-center leading-tight">
                   {lang === "es" ? "CUPOS LIMITADOS" : "LIMITED PLACES"}
                 </div>
               )}
 
               <CardHeader className="p-0">
-                <div className="relative h-72 bg-gradient-to-br from-gray-700 to-gray-900 rounded-t-lg overflow-hidden">
+                <div className="relative h-72 bg-gradient-to-br from-gray-700 to-gray-900 rounded-t-lg overflow-hidden -mt-px">
                   {event.image ? (
-                    <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover object-top" />
+                    <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover object-center" />
                   ) : (
                     <div className="absolute inset-0 bg-black/20" />
                   )}
@@ -136,6 +136,9 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
           ))}
         </div>
       </div>
+    </section>
+  )
+}
     </section>
   )
 }
