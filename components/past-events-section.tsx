@@ -127,7 +127,7 @@ export default function PastEventsSection({ lang, dict }: PastEventsSectionProps
       date: lang === "es" ? "25 al 27 de Junio 2026" : "June 25-27, 2026",
       location: "Las Condes, Chile",
       participants: "80",
-      image: "/images/camp-stadio-italiano-2026.jpg",
+      image: "/images/camp-stadio-italiano-2026.jpeg",
       imageAlt: "Camp Stadio Italiano Las Condes 2026",
       highlights:
         lang === "es"
@@ -140,7 +140,7 @@ export default function PastEventsSection({ lang, dict }: PastEventsSectionProps
       date: lang === "es" ? "3 al 5 de Julio 2026" : "July 3-5, 2026",
       location: "Los Andes, Chile",
       participants: "550",
-      image: "/images/torneo-andino-2026.jpg",
+      image: "/images/torneo-andino-2026.png",
       imageAlt: "Torneo Talento Andino Los Andes 2026",
       highlights:
         lang === "es"
@@ -153,7 +153,7 @@ export default function PastEventsSection({ lang, dict }: PastEventsSectionProps
       date: lang === "es" ? "18 al 28 de Julio 2026" : "July 18-28, 2026",
       location: "Orlando, Florida, USA",
       participants: "10",
-      image: "/images/torneo-summer-2026.jpg",
+      image: "/images/torneo-summer-2026.jpeg",
       imageAlt: "Torneo End off Summer Orlando 2026",
       highlights:
         lang === "es"
