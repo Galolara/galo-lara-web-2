@@ -114,7 +114,7 @@ export default function PastEventsSection({ lang, dict }: PastEventsSectionProps
       date: lang === "es" ? "19 al 21 de Junio 2026" : "June 19-21, 2026",
       location: "Chiguayante, Chile",
       participants: "80",
-      image: "/images/camp-estadio-español-2026.jpg",
+      image: "/images/camp-estadio-espanol-2026.jpg",
       imageAlt: "Camp Estadio Español Chiguayante 2026",
       highlights:
         lang === "es"
@@ -140,7 +140,7 @@ export default function PastEventsSection({ lang, dict }: PastEventsSectionProps
       date: lang === "es" ? "3 al 5 de Julio 2026" : "July 3-5, 2026",
       location: "Los Andes, Chile",
       participants: "550",
-      image: "/images/torneo-andino-2026.png",
+      image: "/images/torneo-andino-2026.PNG",
       imageAlt: "Torneo Talento Andino Los Andes 2026",
       highlights:
         lang === "es"

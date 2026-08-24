@@ -123,7 +123,7 @@ export default function TeamChileHoopsClientPage({ lang, dict }: TeamChileHoopsC
         <section className="bg-black pt-20">
           <div className="w-full">
             <Image
-              src="/images/chile-hoops-2027.jpg"
+              src="/images/chile-hoops-2027.png"
               alt={t.hero.title}
               width={1920}
               height={640}
