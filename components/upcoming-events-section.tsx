@@ -18,39 +18,48 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
 
   const upcomingEvents = [
     {
-      id: 2,
-      title: lang === "es" ? "Camps 2026 Chile" : "Chile Camps 2026",
-      date: lang === "es" ? "Junio 2026" : "June, 2026",
-      time: lang === "es" ? "3 días de entremiento" : "3 days of training",
-      location: "Chile",
-      participants: lang === "es" ? "Edades 9-18" : "Ages 9-18",
+      id: 1,
+      title: "IBT International Basketball Camp 2027",
+      date: lang === "es" ? "16 al 25 de Enero 2027" : "January 16-25, 2027",
+      time:
+        lang === "es"
+          ? "10 días de básquetbol, NBA y experiencias inolvidables"
+          : "10 days of basketball, NBA and unforgettable experiences",
+      location: "Orlando, Florida, USA",
+      participants: lang === "es" ? "13 a 18 años" : "13 to 18 years",
       description:
         lang === "es"
-          ? "Entrenamientos intensivos enfocados en fundamentos, tiro, manejo, defensa, trabajo físico y juego en equipo, dirigidos por un staff técnico profesional."
-          : "Intensive training sessions focused on fundamentals, shooting, ball handling, defense, physical conditioning, and team play, led by a professional coaching staff.",
-      featured: false,
+          ? "Entrenamiento de alto nivel, partidos NBA, entrenamiento en el Kia Center (cancha de los Magic) y parques temáticos: Universal y SeaWorld."
+          : "High-level training, NBA games, training at the Kia Center (Magic's home court), and theme parks: Universal and SeaWorld.",
+      featured: true,
       available: true,
-      image: "/images/camp-chile-2026.jpeg",
-      comingSoon: true,
-      route: "camps-chile",
+      image: "/images/IBT-2027.jpg",
+      badge: {
+        text: lang === "es" ? "Inscripciones Abiertas" : "Enrollment Open",
+        color: "bg-green-600",
+      },
+      route: "camp-ibt",
       contain: false,
     },
     {
-      id: 3,
-      title: lang === "es" ? "Chile Orlando 2026 / U16-U17" : "Chile Orlando 2026 / U16-U17",
-      date: lang === "es" ? "18-28 Julio 2026" : "July 18-28, 2026",
-      time: lang === "es" ? "Torneo ESPN Wide World of Sports" : "ESPN Wide World of Sports Tournament",
+      id: 2,
+      title: "Team Chile Hoops - Orlando 2027",
+      date: lang === "es" ? "Julio 2027 (fechas por confirmar)" : "July 2027 (dates TBC)",
+      time: lang === "es" ? "End of Summer Tournament" : "End of Summer Tournament",
       location: "Orlando, Florida, USA",
-      participants: lang === "es" ? "U16 y U17" : "U16 and U17",
+      participants: lang === "es" ? "13 a 17 años" : "13 to 17 years",
       description:
         lang === "es"
-          ? "Vive la experiencia de competir a nivel internacional por el Team Chile en USA. Tendrás la posibilidad de adquirir becas académicas y deportivas."
-          : "Compete internationally with Team Chile in the USA and gain the opportunity to earn academic and athletic scholarships.",
+          ? "Competencia internacional en el ESPN Wide World of Sports Complex. Equipos individuales y clubes en categorías U13 a U17."
+          : "International competition at the ESPN Wide World of Sports Complex. Individual teams and clubs in U13 to U17 categories.",
       featured: false,
       available: true,
-      image: "/images/tournament-chile-orlando-2026.png",
-      comingSoon: true,
-      route: "team-chile-orlando",
+      image: "/images/chile-hoops-2027.jpg",
+      badge: {
+        text: lang === "es" ? "Próximamente" : "Coming Soon",
+        color: "bg-gray-500",
+      },
+      route: "team-chile-hoops",
       contain: false,
     },
   ]
@@ -75,11 +84,17 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
           {upcomingEvents.map((event) => (
             <Card
               key={event.id}
-              className="bg-black/20 backdrop-blur-sm border border-[rgba(255,255,255,0.05)] hover:bg-black/30 transition-all duration-300 hover:scale-105 relative overflow-hidden w-full max-w-md p-0"
+              className={`bg-black/20 backdrop-blur-sm hover:bg-black/30 transition-all duration-300 hover:scale-105 relative overflow-hidden w-full max-w-md p-0 ${
+                event.featured
+                  ? "border-2 border-[#C5A572] shadow-[0_0_30px_rgba(197,165,114,0.3)]"
+                  : "border border-[rgba(255,255,255,0.05)]"
+              }`}
             >
-              {event.comingSoon && (
-                <div className="absolute top-10 -right-10 w-44 rotate-45 bg-red-600 text-white py-1.5 text-[11px] font-bold shadow-lg z-10 text-center leading-tight">
-                  {lang === "es" ? "CUPOS LIMITADOS" : "LIMITED PLACES"}
+              {event.badge && (
+                <div
+                  className={`absolute top-10 -right-10 w-44 rotate-45 ${event.badge.color} text-white py-1.5 text-[11px] font-bold shadow-lg z-10 text-center leading-tight`}
+                >
+                  {event.badge.text}
                 </div>
               )}
 
