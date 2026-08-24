@@ -153,7 +153,7 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
         <section className="bg-black pt-20">
           <div className="w-full">
             <Image
-              src="/images/banner-ibt.jpeg"
+              src="/images/IBT-2027.png"
               alt={t.hero.title}
               width={1920}
               height={640}
