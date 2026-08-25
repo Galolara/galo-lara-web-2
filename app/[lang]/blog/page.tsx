@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import Footer from "@/components/footer"
 import { getDictionary } from "@/lib/i18n/dictionaries"
 import type { Locale } from "@/lib/i18n/config"
@@ -88,11 +89,14 @@ export default async function BlogPage({ params }: { params: { lang: Locale } })
                   key={post.id}
                   className="flex flex-col gap-6 border-b border-[rgba(255,255,255,0.05)] pb-12 last:border-b-0"
                 >
-                  <img
-                    src={image}
-                    alt={altText}
-                    className="rounded-lg object-cover w-full h-64"
-                  />
+                  <div className="relative w-full h-64">
+                    <Image
+                      src={image}
+                      alt={altText}
+                      fill
+                      className="rounded-lg object-cover"
+                    />
+                  </div>
 
                   <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
