@@ -6,7 +6,13 @@ const MAKE_WEBHOOK_URL =
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { name, email, phone, message, newsletter } = body
+    const { name, email, phone, message, newsletter, website } = body
+
+    // Honeypot: un visitante real nunca completa este campo (está oculto).
+    // Devolvemos éxito falso para no darle pistas a un bot que lo intente.
+    if (website) {
+      return NextResponse.json({ success: true })
+    }
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: "Faltan campos requeridos" }, { status: 400 })

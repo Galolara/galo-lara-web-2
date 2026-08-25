@@ -20,6 +20,8 @@ export default function ContactSection({ lang, dict }: ContactSectionProps) {
     phone: "",
     message: "",
     newsletter: false,
+    // Honeypot: campo invisible para humanos. Si viene con valor, es un bot.
+    website: "",
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -27,6 +29,13 @@ export default function ContactSection({ lang, dict }: ContactSectionProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (formData.website) {
+      // Honeypot completado: es un bot. Simulamos éxito sin enviar nada.
+      setSubmitStatus("success")
+      setFormData({ name: "", email: "", phone: "", message: "", newsletter: false, website: "" })
+      return
+    }
+
     setIsSubmitting(true)
     setSubmitStatus(null)
 
@@ -47,6 +56,7 @@ export default function ContactSection({ lang, dict }: ContactSectionProps) {
           phone: "",
           message: "",
           newsletter: false,
+          website: "",
         })
       } else {
         if (process.env.NODE_ENV === "development") {
@@ -86,6 +96,20 @@ export default function ContactSection({ lang, dict }: ContactSectionProps) {
             <h3 className="text-2xl font-bold text-white mb-6">{dict.contact.sendMessage}</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot anti-spam: invisible para personas, los bots suelen completar todos los campos */}
+              <div className="absolute -left-[9999px]" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-white text-sm font-semibold mb-2">{dict.contact.form.fullName}</label>
