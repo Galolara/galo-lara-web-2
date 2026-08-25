@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import { Play, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -13,6 +15,18 @@ interface MediaSectionProps {
 
 export default function MediaSection({ lang, dict }: MediaSectionProps) {
   const [activeFilter, setActiveFilter] = useState("todos")
+
+  // YouTube devuelve un placeholder gris de 120x90 (no un error real) cuando
+  // un video no tiene miniatura maxresdefault. Detectamos ese tamaño y
+  // pasamos a hqdefault, que sí existe para prácticamente cualquier video.
+  const [lowResThumbnails, setLowResThumbnails] = useState<Set<string>>(new Set())
+
+  const handleThumbnailLoad = (youtubeId: string, e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget
+    if (img.naturalWidth === 120 && img.naturalHeight === 90) {
+      setLowResThumbnails((prev) => new Set(prev).add(youtubeId))
+    }
+  }
 
   const sectionId = lang === "es" ? "medios" : "media"
 
@@ -228,10 +242,13 @@ export default function MediaSection({ lang, dict }: MediaSectionProps) {
                 {item.type === "video" && item.youtubeId ? (
                   <>
                     <Image
-                      src={`https://img.youtube.com/vi/${item.youtubeId}/maxresdefault.jpg`}
+                      src={`https://img.youtube.com/vi/${item.youtubeId}/${
+                        lowResThumbnails.has(item.youtubeId) ? "hqdefault" : "maxresdefault"
+                      }.jpg`}
                       alt={item.title}
                       fill
                       className="object-cover"
+                      onLoad={(e) => handleThumbnailLoad(item.youtubeId, e)}
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <button
