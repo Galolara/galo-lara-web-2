@@ -13,8 +13,8 @@ interface PastEventsSectionProps {
 }
 
 export default function PastEventsSection({ lang, dict }: PastEventsSectionProps) {
-  const eventsCounter = useCountUp({ end: 35, duration: 2000, prefix: "+" })
-  const athletesCounter = useCountUp({ end: 5000, duration: 2500, prefix: "+" })
+  const eventsCounter = useCountUp({ end: 39, duration: 2000, prefix: "+" })
+  const athletesCounter = useCountUp({ end: 5170, duration: 2500, prefix: "+" })
   const citiesCounter = useCountUp({ end: 10, duration: 1800, prefix: "+" })
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
