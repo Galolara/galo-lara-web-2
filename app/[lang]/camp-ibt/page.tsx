@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import CampIBTClientPage from "./client-page"
 import { getDictionary } from "@/lib/i18n/dictionaries"
 import type { Locale } from "@/lib/i18n/config"
+import { getAlternates } from "@/lib/seo/alternates"
 
 export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
   return {
@@ -13,6 +14,7 @@ export async function generateMetadata({ params }: { params: { lang: Locale } })
       params.lang === "es"
         ? "IBT International Basketball Camp - Orlando 2027. 10 días de básquetbol, NBA y experiencias inolvidables. 16 al 25 de enero de 2027."
         : "IBT International Basketball Camp - Orlando 2027. 10 days of basketball, NBA and unforgettable experiences. January 16-25, 2027.",
+    alternates: getAlternates("camp-ibt", params.lang),
   }
 }
 

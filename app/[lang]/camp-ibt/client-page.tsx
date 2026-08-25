@@ -6,7 +6,9 @@ import { Calendar, MapPin, Trophy, CheckCircle2 } from "lucide-react"
 import { themeConfig } from "@/lib/theme-config"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
+import { JsonLd } from "@/components/json-ld"
 import type { Locale } from "@/lib/i18n/config"
+import { SITE_URL } from "@/lib/seo/alternates"
 
 interface CampIBTClientPageProps {
   lang: Locale
@@ -14,6 +16,38 @@ interface CampIBTClientPageProps {
 }
 
 const REGISTRATION_FORM_URL = "https://forms.gle/BmydXE2dwePuiJS5A"
+
+const eventJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "IBT International Basketball Camp 2027",
+  startDate: "2027-01-16",
+  endDate: "2027-01-25",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  location: {
+    "@type": "Place",
+    name: "Orlando, Florida",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Orlando",
+      addressRegion: "FL",
+      addressCountry: "US",
+    },
+  },
+  organizer: {
+    "@type": "Person",
+    name: "Galo Lara",
+    url: SITE_URL,
+  },
+  offers: {
+    "@type": "Offer",
+    price: "3100",
+    priceCurrency: "USD",
+    url: REGISTRATION_FORM_URL,
+    availability: "https://schema.org/InStock",
+  },
+}
 
 export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps) {
   const content = {
@@ -147,6 +181,7 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
 
   return (
     <>
+      <JsonLd data={eventJsonLd} />
       <Header lang={lang} dict={dict} />
       <main className="min-h-screen">
         {/* Hero */}

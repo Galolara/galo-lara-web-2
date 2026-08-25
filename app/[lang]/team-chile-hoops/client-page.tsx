@@ -6,7 +6,9 @@ import { Calendar, MapPin, Users, Trophy } from "lucide-react"
 import { themeConfig } from "@/lib/theme-config"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
+import { JsonLd } from "@/components/json-ld"
 import type { Locale } from "@/lib/i18n/config"
+import { SITE_URL } from "@/lib/seo/alternates"
 
 interface TeamChileHoopsClientPageProps {
   lang: Locale
@@ -14,6 +16,35 @@ interface TeamChileHoopsClientPageProps {
 }
 
 const REGISTRATION_FORM_URL = "https://forms.gle/q2tuajjUE8AbidM58"
+
+const eventJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "Team Chile Hoops - Orlando 2027",
+  startDate: "2027-07",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  location: {
+    "@type": "Place",
+    name: "ESPN Wide World of Sports Complex, Orlando, Florida",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Orlando",
+      addressRegion: "FL",
+      addressCountry: "US",
+    },
+  },
+  organizer: {
+    "@type": "Person",
+    name: "Galo Lara",
+    url: SITE_URL,
+  },
+  offers: {
+    "@type": "Offer",
+    url: REGISTRATION_FORM_URL,
+    availability: "https://schema.org/InStock",
+  },
+}
 
 export default function TeamChileHoopsClientPage({ lang, dict }: TeamChileHoopsClientPageProps) {
   const content = {
@@ -117,6 +148,7 @@ export default function TeamChileHoopsClientPage({ lang, dict }: TeamChileHoopsC
 
   return (
     <>
+      <JsonLd data={eventJsonLd} />
       <Header lang={lang} dict={dict} />
       <main className="min-h-screen">
         {/* Hero */}

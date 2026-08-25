@@ -1,11 +1,24 @@
 import Link from "next/link"
 import Image from "next/image"
 import Footer from "@/components/footer"
+import type { Metadata } from "next"
 import { getDictionary } from "@/lib/i18n/dictionaries"
 import type { Locale } from "@/lib/i18n/config"
 import { sanitizeHTML, stripHTML } from "@/lib/security/sanitize"
+import { getAlternates } from "@/lib/seo/alternates"
 
 export const revalidate = 60
+
+export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
+  return {
+    title: params.lang === "es" ? "Blog - Galo Lara" : "Blog - Galo Lara",
+    description:
+      params.lang === "es"
+        ? "Artículos y novedades de Galo Lara: camps, torneos, desarrollo de talentos y básquetbol internacional."
+        : "Articles and news from Galo Lara: camps, tournaments, talent development, and international basketball.",
+    alternates: getAlternates("blog", params.lang),
+  }
+}
 
 const WP_API = process.env.NEXT_PUBLIC_WP_API || "https://wp.galolara.cl"
 

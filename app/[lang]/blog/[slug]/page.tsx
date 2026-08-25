@@ -5,6 +5,8 @@ import { getDictionary } from "@/lib/i18n/dictionaries"
 import type { Locale } from "@/lib/i18n/config"
 import { sanitizeHTML } from "@/lib/security/sanitize"
 import { notFound } from "next/navigation"
+import { SITE_URL } from "@/lib/seo/alternates"
+import { JsonLd } from "@/components/json-ld"
 
 function fixWpContentAssetUrls(html: string, wpBase = "https://wp.galolara.cl") {
   if (!html) return html
@@ -81,7 +83,7 @@ async function getPost(slug: string) {
    SEO + Social preview
 ========================= */
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: { slug: string; lang: Locale } }) {
   const post = await getPost(params.slug)
 
   if (!post) return {}
@@ -102,6 +104,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       title,
       description,
       images: featuredImage ? [featuredImage] : [],
+    },
+    alternates: {
+      canonical: `${SITE_URL}/${params.lang}/blog/${params.slug}`,
+      languages: {
+        es: `${SITE_URL}/es/blog/${params.slug}`,
+        en: `${SITE_URL}/en/blog/${params.slug}`,
+      },
     },
   }
 }
@@ -140,8 +149,25 @@ export default async function BlogPostPage({
 
   const safeFeaturedImage = featuredImage?.replace("http://", "https://")
 
+  const blogPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title?.rendered?.replace(/<[^>]+>/g, "") || "Blog",
+    description: post.excerpt?.rendered?.replace(/<[^>]+>/g, "") || undefined,
+    image: safeFeaturedImage || undefined,
+    datePublished: post.date,
+    dateModified: post.modified || post.date,
+    author: {
+      "@type": "Person",
+      name: "Galo Lara",
+      url: SITE_URL,
+    },
+    mainEntityOfPage: `${SITE_URL}/${params.lang}/blog/${params.slug}`,
+  }
+
   return (
     <>
+      <JsonLd data={blogPostingJsonLd} />
       <article className="pt-32 pb-20 bg-black min-h-screen">
         <div className="container mx-auto px-4 max-w-4xl">
 
