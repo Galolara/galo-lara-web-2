@@ -33,7 +33,7 @@ export default function UpcomingEventsSection({ lang, dict }: UpcomingEventsSect
           : "High-level training, NBA games, training at the Kia Center (Magic's home court), and theme parks: Universal and SeaWorld.",
       featured: true,
       available: true,
-      image: "/images/IBT-2027.png",
+      image: "/images/IBT-banner-2027.png",
       badge: {
         text: lang === "es" ? "Inscripciones Abiertas" : "Enrollment Open",
         color: "bg-green-600",
