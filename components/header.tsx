@@ -62,6 +62,22 @@ export default function Header({ lang, dict }: HeaderProps) {
     setIsMenuOpen(false)
   }
 
+  const navigateAndScrollToSection = (sectionId: string) => {
+    router.push(`/${lang}`)
+
+    const scrollToSectionWithRetry = (attempts = 0) => {
+      const section = document.getElementById(sectionId)
+
+      if (section) {
+        scrollToSection(sectionId)
+      } else if (attempts < 5) {
+        setTimeout(() => scrollToSectionWithRetry(attempts + 1), 250)
+      }
+    }
+
+    setTimeout(() => scrollToSectionWithRetry(), 300)
+  }
+
   const handleNavigation = (href: string, e?: React.MouseEvent<HTMLAnchorElement>) => {
     if (e) e.preventDefault()
 
@@ -71,19 +87,7 @@ export default function Header({ lang, dict }: HeaderProps) {
       if (pathname === `/${lang}`) {
         scrollToSection(sectionId)
       } else {
-        router.push(`/${lang}`)
-
-        const scrollToSectionWithRetry = (attempts = 0) => {
-          const section = document.getElementById(sectionId)
-
-          if (section) {
-            scrollToSection(sectionId)
-          } else if (attempts < 5) {
-            setTimeout(() => scrollToSectionWithRetry(attempts + 1), 250)
-          }
-        }
-
-        setTimeout(() => scrollToSectionWithRetry(), 300)
+        navigateAndScrollToSection(sectionId)
       }
     } else {
       router.push(href)
@@ -104,18 +108,7 @@ export default function Header({ lang, dict }: HeaderProps) {
     if (pathname === `/${lang}`) {
       scrollToSection(contactId)
     } else {
-      router.push(`/${lang}`)
-      const scrollToSectionWithRetry = (attempts = 0) => {
-        const section = document.getElementById(contactId)
-
-        if (section) {
-          scrollToSection(contactId)
-        } else if (attempts < 5) {
-          setTimeout(() => scrollToSectionWithRetry(attempts + 1), 250)
-        }
-      }
-
-      setTimeout(() => scrollToSectionWithRetry(), 300)
+      navigateAndScrollToSection(contactId)
     }
     setIsMenuOpen(false)
   }
@@ -164,7 +157,10 @@ export default function Header({ lang, dict }: HeaderProps) {
 
             <div className="relative events-dropdown" onMouseEnter={() => setIsEventsDropdownOpen(true)}>
               <button
+                onClick={() => setIsEventsDropdownOpen((prev) => !prev)}
                 onMouseEnter={() => setIsEventsDropdownOpen(true)}
+                aria-expanded={isEventsDropdownOpen}
+                aria-haspopup="true"
                 className={`${themeConfig.header.navLink} flex items-center`}
               >
                 {dict.header.nav.events}
@@ -266,8 +262,13 @@ export default function Header({ lang, dict }: HeaderProps) {
                 {dict.header.nav.services}
               </Link>
 
-              <div className="events-dropdown w-full" onMouseEnter={() => setIsEventsDropdownOpen(true)}>
-                <button className={`${themeConfig.header.navLink} flex items-center w-full text-left`}>
+              <div className="events-dropdown w-full">
+                <button
+                  onClick={() => setIsEventsDropdownOpen((prev) => !prev)}
+                  aria-expanded={isEventsDropdownOpen}
+                  aria-haspopup="true"
+                  className={`${themeConfig.header.navLink} flex items-center w-full text-left`}
+                >
                   {dict.header.nav.events}
                   <svg
                     className={`ml-1 h-4 w-4 transition-transform duration-200 ${isEventsDropdownOpen ? "rotate-180" : ""}`}
