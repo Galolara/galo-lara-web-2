@@ -30,19 +30,14 @@ export default function ContactSection({ lang, dict }: ContactSectionProps) {
     setIsSubmitting(true)
     setSubmitStatus(null)
 
-    console.log("[v0] Form submission started", formData)
-
     try {
-      const response = await fetch("https://hook.us2.make.com/oehvf6ngy6hqsfn6widvagoimq54bunn", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       })
-
-      console.log("[v0] Response status:", response.status)
-      console.log("[v0] Response ok:", response.ok)
 
       if (response.ok) {
         setSubmitStatus("success")
@@ -54,12 +49,15 @@ export default function ContactSection({ lang, dict }: ContactSectionProps) {
           newsletter: false,
         })
       } else {
-        const errorText = await response.text()
-        console.log("[v0] Error response:", errorText)
+        if (process.env.NODE_ENV === "development") {
+          console.error("[contact] submission failed:", response.status)
+        }
         setSubmitStatus("error")
       }
     } catch (error) {
-      console.log("[v0] Fetch error:", error)
+      if (process.env.NODE_ENV === "development") {
+        console.error("[contact] fetch error:", error)
+      }
       setSubmitStatus("error")
     } finally {
       setIsSubmitting(false)
