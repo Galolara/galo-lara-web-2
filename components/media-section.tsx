@@ -46,6 +46,7 @@ export default function MediaSection({ lang, dict }: MediaSectionProps) {
       type: "video",
       youtubeId: "vJymZV2NOP0",
       youtubeUrl: "https://www.youtube.com/watch?v=vJymZV2NOP0&t=11s",
+      noMaxRes: true,
     },
     {
       id: 3,
@@ -68,6 +69,7 @@ export default function MediaSection({ lang, dict }: MediaSectionProps) {
       type: "video",
       youtubeId: "T8avgfMAnQo",
       youtubeUrl: "https://www.youtube.com/watch?v=T8avgfMAnQo",
+      noMaxRes: true,
     },
     {
       id: 5,
@@ -79,6 +81,7 @@ export default function MediaSection({ lang, dict }: MediaSectionProps) {
       type: "video",
       youtubeId: "g6btOqyC3WQ",
       youtubeUrl: "https://www.youtube.com/watch?v=g6btOqyC3WQ",
+      noMaxRes: true,
     },
     {
       id: 6,
@@ -166,6 +169,7 @@ export default function MediaSection({ lang, dict }: MediaSectionProps) {
       type: "video",
       youtubeId: "uqHW7sECCTA",
       youtubeUrl: "https://www.youtube.com/watch?v=uqHW7sECCTA",
+      noMaxRes: true,
     },
   ]
 
@@ -228,7 +232,9 @@ export default function MediaSection({ lang, dict }: MediaSectionProps) {
                 {item.type === "video" && item.youtubeId ? (
                   <>
                     <Image
-                      src={`https://img.youtube.com/vi/${item.youtubeId}/maxresdefault.jpg`}
+                      src={`https://img.youtube.com/vi/${item.youtubeId}/${
+                        item.noMaxRes ? "hqdefault" : "maxresdefault"
+                      }.jpg`}
                       alt={item.title}
                       fill
                       className="object-cover"

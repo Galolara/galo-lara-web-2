@@ -20,6 +20,8 @@ export const routes: Record<string, Record<Locale, string>> = {
   services: { es: "servicios", en: "services" },
   "camps-chile": { es: "camps-chile", en: "camps-chile" },
   "team-chile-orlando": { es: "team-chile-orlando", en: "team-chile-orlando" },
+  "camp-ibt": { es: "camp-ibt", en: "camp-ibt" },
+  "team-chile-hoops": { es: "team-chile-hoops", en: "team-chile-hoops" },
   blog: { es: "blog", en: "blog" },
   // Hash routes
   events: { es: "eventos", en: "events" },

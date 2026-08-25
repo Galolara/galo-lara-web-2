@@ -1,2 +1,1 @@
-import AboutPage from "../sobre-mi/page"
-export default AboutPage
+export { default, generateMetadata } from "../sobre-mi/page"

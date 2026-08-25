@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import "../globals.css"
 import { locales, type Locale } from "@/lib/i18n/config"
 import { getDictionary } from "@/lib/i18n/dictionaries"
+import { getAlternates } from "@/lib/seo/alternates"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export async function generateMetadata({ params }: { params: { lang: Locale } })
       ],
       apple: "/apple-icon.png",
     },
+    alternates: getAlternates("home", params.lang),
   }
 }
 

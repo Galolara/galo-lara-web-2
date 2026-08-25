@@ -23,7 +23,14 @@ export default function Footer({ lang, dict }: FooterProps) {
         <div className="flex flex-col items-center space-y-6">
           <div className="flex space-x-4">
             {socialLinks.map((social, index) => (
-              <Link key={index} href={social.href} className={themeConfig.footer.socialLink} aria-label={social.label}>
+              <Link
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={themeConfig.footer.socialLink}
+                aria-label={social.label}
+              >
                 {social.icon}
               </Link>
             ))}
