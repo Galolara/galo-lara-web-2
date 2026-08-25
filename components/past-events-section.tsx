@@ -42,6 +42,20 @@ export default function PastEventsSection({ lang, dict }: PastEventsSectionProps
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
 
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const autoplay = setInterval(() => {
+      if (emblaApi.canScrollNext()) {
+        emblaApi.scrollNext()
+      } else {
+        emblaApi.scrollTo(0)
+      }
+    }, 4000)
+
+    return () => clearInterval(autoplay)
+  }, [emblaApi])
+
   const pastEvents = [
     {
       id: 1,
@@ -162,6 +176,10 @@ export default function PastEventsSection({ lang, dict }: PastEventsSectionProps
     },
   ]
 
+  // El carrusel se muestra del evento más nuevo al más antiguo (orden inverso al array de datos,
+  // que se mantiene cronológico para que sea simple agregar eventos nuevos al final).
+  const displayEvents = [...pastEvents].reverse()
+
   const pastEventsHash = lang === "es" ? "ultimos-eventos" : "past-events"
 
   return (
@@ -205,7 +223,7 @@ export default function PastEventsSection({ lang, dict }: PastEventsSectionProps
           {/* Embla viewport */}
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-6">
-              {pastEvents.map((event) => (
+              {displayEvents.map((event) => (
                 <div
                   key={event.id}
                   className="flex-none w-[80%] sm:w-[48%] lg:w-[23%] bg-zinc-900/50 border border-[rgba(255,255,255,0.03)] rounded-2xl overflow-hidden hover:bg-zinc-800/50 transition-all duration-300 hover:scale-[1.02]"
