@@ -109,7 +109,7 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
         chile: {
           question: "¿Viajas desde Chile?",
           text: "Puedes gestionar tu viaje con Agencia Mundo Tour, con un servicio que incluye:",
-          items: ["Pasaje aéreo", "Seguro de viaje", "Asesoría para Visa", "Orientación y gestión de permisos de viaje"],
+          items: ["Pasaje aéreo", "Seguro de viaje", "Asesoría para Visa", "Orientación y gestión de permisos de viaje", "Facilidades de pago - 12 cuotas sin interés (tarjetas de crédito - Cheques)"],
           tagline: "IBT se encarga de tu experiencia en Orlando. Mundo Tour te ayuda a preparar tu viaje desde Chile",
           contact: "Contacto agencia: omartinez@mundotour.cl",
         },
@@ -179,7 +179,7 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
         chile: {
           question: "Traveling from Chile?",
           text: "You can arrange your trip with Agencia Mundo Tour, with a service that includes:",
-          items: ["Airfare", "Travel insurance", "Visa assistance", "Guidance and management of travel permits"],
+          items: ["Airfare", "Travel insurance", "Visa assistance", "Guidance and management of travel permits", "Payment facilities - 12 interest-free installments (credit cards - checks)"],
           tagline: "IBT takes care of your experience in Orlando. Mundo Tour helps you prepare your trip from Chile",
           contact: "Agency contact: omartinez@mundotour.cl",
         },
