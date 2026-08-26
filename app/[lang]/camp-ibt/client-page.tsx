@@ -305,8 +305,8 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
                 <p className="text-gray-300 mb-4">{t.pricing.chile.text}</p>
                 <ul className="space-y-2 mb-6">
                   {t.pricing.chile.items.map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-gray-300">
-                      <div className="w-2 h-2 bg-[#C5A572] rounded-full flex-shrink-0" />
+                    <li key={i} className="flex items-start gap-3 text-gray-300">
+                      <div className="w-2 h-2 bg-[#C5A572] rounded-full flex-shrink-0 mt-2" />
                       {item}
                     </li>
                   ))}
