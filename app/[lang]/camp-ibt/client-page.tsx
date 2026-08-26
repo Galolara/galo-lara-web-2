@@ -103,8 +103,16 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
       },
       pricing: {
         title: "Inversión",
-        plan1: { name: "Opción 1", description: "Sin pasaje", price: "USD $3.100" },
-        plan2: { name: "Opción 2", description: "Agencia Mundo Tour (incluye valor pasaje)", price: "USD $3.100 + pasaje" },
+        valueLabel: "Valor Camp IBT 2027",
+        value: "USD 3.100",
+        note: "Pasaje aéreo no incluido.",
+        chile: {
+          question: "¿Viajas desde Chile?",
+          text: "Puedes gestionar tu viaje con Agencia Mundo Tour, con un servicio que incluye:",
+          items: ["Pasaje aéreo", "Seguro de viaje", "Asesoría para Visa", "Orientación y gestión de permisos de viaje"],
+          tagline: "IBT se encarga de tu experiencia en Orlando. Mundo Tour te ayuda a preparar tu viaje desde Chile",
+          contact: "Contacto agencia: omartinez@mundotour.cl",
+        },
       },
       cta: {
         title: "10 días. Una experiencia internacional.",
@@ -165,8 +173,16 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
       },
       pricing: {
         title: "Investment",
-        plan1: { name: "Option 1", description: "Without airfare", price: "USD $3,100" },
-        plan2: { name: "Option 2", description: "Mundo Tour Agency (includes airfare)", price: "USD $3,100 + airfare" },
+        valueLabel: "IBT Camp 2027 Price",
+        value: "USD $3,100",
+        note: "Airfare not included.",
+        chile: {
+          question: "Traveling from Chile?",
+          text: "You can arrange your trip with Agencia Mundo Tour, with a service that includes:",
+          items: ["Airfare", "Travel insurance", "Visa assistance", "Guidance and management of travel permits"],
+          tagline: "IBT takes care of your experience in Orlando. Mundo Tour helps you prepare your trip from Chile",
+          contact: "Agency contact: omartinez@mundotour.cl",
+        },
       },
       cta: {
         title: "10 days. One international experience.",
@@ -279,17 +295,24 @@ export default function CampIBTClientPage({ lang, dict }: CampIBTClientPageProps
             {/* Inversión */}
             <div>
               <h2 className={`${themeConfig.typography.h2} ${themeConfig.colors.text.white} mb-6`}>{t.pricing.title}</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                  <p className="text-white font-bold text-lg mb-2">{t.pricing.plan1.name}</p>
-                  <p className="text-gray-400 text-sm mb-4">{t.pricing.plan1.description}</p>
-                  <p className="text-4xl font-bold text-[#C5A572]">{t.pricing.plan1.price}</p>
-                </div>
-                <div className="bg-[#C5A572]/10 border border-[#C5A572]/30 rounded-xl p-6">
-                  <p className="text-white font-bold text-lg mb-2">{t.pricing.plan2.name}</p>
-                  <p className="text-gray-400 text-sm mb-4">{t.pricing.plan2.description}</p>
-                  <p className="text-4xl font-bold text-[#C5A572]">{t.pricing.plan2.price}</p>
-                </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-8 text-center mb-6">
+                <p className="text-gray-400 text-sm font-semibold mb-2">{t.pricing.valueLabel}</p>
+                <p className="text-4xl font-bold text-[#C5A572] mb-2">{t.pricing.value}</p>
+                <p className="text-gray-400 text-sm">{t.pricing.note}</p>
+              </div>
+              <div className="bg-[#C5A572]/10 border border-[#C5A572]/30 rounded-xl p-8">
+                <p className="text-white font-bold text-xl mb-4">{t.pricing.chile.question}</p>
+                <p className="text-gray-300 mb-4">{t.pricing.chile.text}</p>
+                <ul className="space-y-2 mb-6">
+                  {t.pricing.chile.items.map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-gray-300">
+                      <div className="w-2 h-2 bg-[#C5A572] rounded-full flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-[#C5A572] font-semibold mb-4">🏀 {t.pricing.chile.tagline}</p>
+                <p className="text-gray-400 text-sm">{t.pricing.chile.contact}</p>
               </div>
             </div>
           </div>
